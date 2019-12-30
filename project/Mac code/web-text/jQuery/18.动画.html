@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 400px;
+            height: 400px;
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <button id="hide">隐藏</button>
+    <button id="show">显示</button>
+    <button id="toggle">显示/隐藏</button>
+    <button id="animate">动画</button>
+    <button id="animated">谁在做动画</button>
+    <button id="fadeIn">淡入淡出</button>
+    <button id="fadeOut">淡出淡入</button>
+    <button id="fadeToggle">显示/隐藏</button>
+    <button id="slideDown">向下</button>
+    <button id="slideUp">向上</button>
+
+
+
+    <div id="div1"></div>
+    <script src="jquery-1.11.2.js"></script>
+
+    <script>
+        var $div1 = $("#div1");
+        $("#hide").on("click", function(){
+            $div1.hide(5000);
+        });
+        $("#show").on("click", function(){
+            $div1.show(5000);
+        });
+        $("#toggle").on("click", function(){
+            $div1.toggle(5000);
+        });
+        $("#animate").on("click", function(){ //三个参数： 一：让谁做动画  二：时间  三：动画效果
+            $div1.animate({
+                width: 600,
+                height: 600
+            }, 2000);
+        });
+        $("#animated").on("click", function(){
+            $("#div1:animated").css("background", "green");
+        });
+        $("#fadeIn").on("click", function(){
+            $div1.fadeIn(1000);
+        });
+        $("#fadeOut").on("click", function(){
+            $div1.fadeOut(1000);
+        });
+        $("#slideDown").on("click", function(){
+            $div1.slideDown(1000);
+        });
+        $("#slideUp").on("click", function(){
+            $div1.slideUp(1000);
+        });
+
+    </script>
+</body>
+</html>

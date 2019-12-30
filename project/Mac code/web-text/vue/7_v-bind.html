@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa{
+            width: 200px;
+            height: 200px;
+            background: #00ffff;
+        }
+        .bb{
+            background: #ff00ff;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!-- v:bind简写 : -->
+        <img v-bind:src="imgSrc" v-bind:alt="imgAlt">
+        <div v-bind:class="clsName">div1</div>
+        <div :class="{bb:isBb}">div2</div>
+        <div :class="{aa: isAa, bb: isBb}">div3</div>
+        <div :style="styleObj">div4</div>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el : '#app',
+            data : {
+                imgSrc : 'https://vuefe.cn/images/logo.png',
+                imgAlt : '图片加载失败',
+                clsName : 'aa',
+                isAa : true,
+                isBb : true,
+                styleObj : {
+                    white : 200,
+                    'background-color' : '#00f', //backgroundColor
+                }
+            }
+        })
+    
+    
+    
+    </script>
+</body>
+</html>

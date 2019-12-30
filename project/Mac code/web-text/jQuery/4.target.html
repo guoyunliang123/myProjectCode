@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 3000px;
+        }
+        #nav{
+            height: 30px;
+        }
+        #nav li{
+            width: 200px;
+            height: 30px;
+            background: #cccccc;
+            float: left;
+        }
+        div{
+            height: 200px;
+        }
+        #div1{
+            margin-top: 1000px;
+            background: #ff0000;
+        }
+        #div2{
+            background: #00ff00;
+        }
+        #div3{
+            background: #0000ff;
+        }
+        /* #div3:target{
+            background: #cccccc;
+        } */  /* 当div3为目标时，div3 的背景颜色变为灰色 */
+    </style>
+</head>
+<body>
+    <ul id="nav">
+        <li><a href="#div1">模块一</a></li>
+        <li><a href="#div2">模块二</a></li>
+        <li><a href="#div3">模块三</a></li>
+    </ul>
+
+    <div id="div1">模块一</div>
+    <div id="div2">模块二</div>
+    <div id="div3">模块三</div>
+
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        $(function(){
+            $("#nav li:last").on("click", function(){
+                $("#div3:target").css("background", "#ccc");
+            });
+        });
+    </script>
+
+</body>
+</html>

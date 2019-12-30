@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 实现一个可以替换手机号字符串中间四位为 ****
+    function protectPhone(phone) {
+      str = phone.substr(0, 4) + '****' + phone.substring(7)
+      return str;
+    }
+    console.log(protectPhone('12344445555'));
+
+    // 实现一个字符串连续去重  'abcdaaaabcd' => 'abcdabcd'
+    /* function dedupe(str) {
+      var s1 = str;
+      var c;
+      var cc = s.match(/(\d)\1+/g);
+      for (var i = 0; i < cc.length; i++) {
+        c = cc[i].substring(0, 1);
+        s1 = s1.replace(cc[i], c);
+      }
+    }
+    consloe.log(dedupe('abcdaaaabcd')); */
+    console.log(Array.of('abc'));
+  </script>
+</body>
+
+</html>

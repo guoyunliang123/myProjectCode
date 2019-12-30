@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #ul1 li:nth-child(1){ /* 从1开始， 不支持负数 */
+            background: #ff0000;
+        }
+        #div1{
+            text-shadow: 10px 10px 2px rgba(0, 255, 0, .5);
+        }
+        #div2{
+            border: 1px solid;
+            width: 300px;
+
+            white-space: nowrap;   /* 让文字不换行 */           
+            overflow: hidden;
+            text-overflow: ellipsis;  /* 让多出的文字变成点点点  三个属性一起写 */
+            /* text-overflow: clip;   /* 剪切 */
+        }
+        #div3{
+            display: flex;
+        }
+        /* 当元素中有内容的时候，则不是按1:1分配，则需要加宽度=0 */
+        #div4{
+            background: #ff0000;
+            flex-grow: 1;
+            height: 300px;
+            width: 0;  
+        }
+        #div5{
+            background: #00ff00;
+            height: 300px;
+            flex-grow: 1;
+            width: 0;
+        }
+        #div6{
+            background: #0000ff;
+            width: 200px;
+            height: 200px;
+            transition: all 2s ease;
+        }
+        #div6:hover{
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <div id="div1">div1</div>
+
+    <div id="div2">傻大姐卡号 好看加深回家看好就卡死的黄金卡好个分为问问富士康不都是明白  方式吧</div>
+
+    <div id="div3">
+        <div id="div4">
+            <h1>hhhhhhhh</h1>
+        </div>
+        <div id="div5">
+            <div>kkkkkkk</div>
+        </div>
+    </div>
+
+    <div id="div6"></div>
+</body>
+</html>

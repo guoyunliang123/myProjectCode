@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left, #center, #right{
+
+        }
+        #left{
+            background: #00ff00;
+            width: 300px;
+            /* margin-right: 100px; */
+            /* -webkit-box-ordinal-group: 2; */
+            height: 300px;
+        }
+        #center{
+            background: #ff0000;
+            -webkit-box-flex: 1;
+            /* -webkit-box-ordinal-group: 1; */        
+            height: 400px;    
+        }
+        #right{
+            background: #0000ff;
+            -webkit-box-flex: 1;
+            /* -webkit-box-ordinal-group: 3; */
+            height: 500px;
+        }
+        #main{
+            display: -webkit-box;  /* 旧的  父元素先同意 */
+            /* -webkit-box-orient: vertical; */
+            /* -webkit-box-direction: reverse; */
+            -webkit-box-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="left"></div>
+        <div id="center"></div>
+        <div id="right"></div>
+    </div>
+</body>
+</html>

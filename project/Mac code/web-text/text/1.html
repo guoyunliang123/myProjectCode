@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<style>
+input{
+width: 80px;
+height: 30px;
+}
+</style>
+<body>
+
+<h1>我的第一段 JavaScript</h1>
+
+<p id="demo">
+JavaScript 能改变 HTML 元素的内容。
+</p>
+<h2 id="demo1">
+就是这么嚣张
+</h2>
+
+<script>
+function myFunction()
+{
+x=document.getElementById("demo");  // 找到元素
+x.innerHTML="Hello JavaScript!";    // 改变内容
+}
+function add() {
+y=document.getElementById('demo1');
+y.innerHTML="Hello DaDa"
+}
+</script>
+
+<button type="button" onclick="myFunction()">点击这里</button>
+<input type="button" value="点我" onclick="add()">
+
+</body>
+</html>

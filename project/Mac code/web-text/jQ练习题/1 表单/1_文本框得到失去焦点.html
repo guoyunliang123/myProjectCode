@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .focus{
+            border: 1px solid #f00;
+	        background: #fcc;
+        }
+    </style>
+</head>
+<body>
+    <form action="" id="menu">
+        <p>个人基本信息</p>
+        名称：<input type="text" value="名称"><br>
+        密码：<input type="password" value="密码"><br>
+        详细信息：<input type="text" value="详细信息">
+    </form>
+
+    <script src="../../jQuery/jquery-1.11.2.js"></script>
+    <script>
+        // $(function(){
+        //     $("#menu input").focus(function(){
+        //         $(this).css("background", "#ccc");
+        //     });
+        //     $("#menu input").blur(function(){
+        //         $(this).css("background", "#fff");
+        //     });
+        // });
+
+        $(function(){
+            $("#menu input").focus(function(){
+                $(this).addClass("focus");    
+                if($(this).val() == this.defaultValue){
+                    this.value = "";
+                }         
+            }).blur(function(){
+                $(this).removeClass("focus").val(this.value==""?this.defaultValue:this.value);
+            });
+        });
+        // $(function(){
+        //     $(":input").focus(function(){
+        //         $(this).addClass("focus");
+        //         if($(this).val() == this.defaultValue){
+        //             this.value = "";
+        //         }
+        //     }).blur(function(){
+        //         $(this).removeClass("focus").val(this.value==""?this.defaultValue:this.value);
+        //     });
+        // })
+    </script>
+</body>
+</html>

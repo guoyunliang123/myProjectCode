@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 12栏网格
+        col-xs-   为手机准备的网格类    小于768px时  使用
+        col-sm-   为平板电脑准备的网格类    大于768px时  使用
+        col-md-   一般尺寸的桌面电脑      大于等于992px时  使用
+        col-lg-   大尺寸的设备      大于等于1200px时  使用
+    -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8"> 
+                <h1 class="page-header">主体</h1>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere eum consequatur deleniti explicabo saepe incidunt dolorem quae molestias perferendis quidem odit quia, veniam cupiditate corrupti, voluptatum aliquam! Possimus, minus modi!</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>区块一</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magnam autem dolore dolorum delectus earum eaque aliquid iusto. Nesciunt, saepe neque. Saepe tempora, officia velit iure inventore dignissimos sed! Nesciunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo repudiandae, dolore assumenda recusandae, quod corporis consequuntur praesentium soluta error dolores adipisci officia numquam ab cupiditate expedita atque alias, laborum aspernatur!</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>区块二</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magnam autem dolore dolorum delectus earum eaque aliquid iusto. Nesciunt, saepe neque. Saepe tempora, officia velit iure inventore dignissimos sed! Nesciunt!</p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>区块三</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magnam autem dolore dolorum delectus earum eaque aliquid iusto. Nesciunt, saepe neque. Saepe tempora, officia velit iure inventore dignissimos sed! Nesciunt!</p>
+                    </div>
+                    <div class="clearfix"></div>  <!-- 解决元素浮动问题   或者把区块4和5也放在一个row里 -->
+                    <div class="col-md-6 col-md-offset-6">   <!-- 让区块四向右偏移六个网格的空间 --> 
+                        <h2>区块四</h2>
+                        <p class="alert alert-info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad magnam autem dolore dolorum delectus earum eaque aliquid iusto. Nesciunt, saepe neque. Saepe tempora, officia velit iure inventore dignissimos sed! Nesciunt!</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>区块五</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim animi laudantium sed quas exercitationem nam autem asperiores amet ipsum? Nam optio sit animi omnis, obcaecati eaque quidem reiciendis unde repudiandae.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h1 class="page-header">边栏</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, delectus nihil! Aliquid incidunt similique expedita. Temporibus quibusdam id velit repellat, aliquid maxime repudiandae magni omnis consequatur repellendus expedita est iste.</p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="jquery-1.11.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

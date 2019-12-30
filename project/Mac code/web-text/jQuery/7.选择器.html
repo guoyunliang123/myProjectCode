@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul li:nth-child(2n){
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>01</li>
+        <li>02</li>
+        <li>03</li>
+        <li>04</li>
+        <li>05</li>
+        <li>06</li>
+    </ul>
+    <div>
+        <span>Corey,</span>
+        <span>Yehuda,</span>
+        <span>Adam,</span>
+        <span>Todd</span>
+    </div>
+    <div>
+        <b>Nobody,</b>
+        <span>Jörn,</span>
+        <span>Scott,</span>
+        <span>Timo</span>
+    </div>
+
+    <script src="jquery-1.11.2.js"></script>
+
+    <script>
+        $(function(){
+            //$("div span:first-child").css("background", "red");   //选中的是第一个孩子
+            //$("div span:first-of-type").css("background", "red");  //选中的是div下面的第一个出现的span 
+            
+        });
+    </script>
+</body>
+</html>

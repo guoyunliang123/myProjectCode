@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">随机数</button>
+    <div id="result"></div>
+
+    <script>
+        // bom方法  改变url地址
+        var oBtn = document.querySelector("#btn");
+        var oResult = document.querySelector("#result");
+        var obj = {};
+        oBtn.addEventListener("click", function(){
+            var arr = [];
+            for(var i=0; i<5; i++){
+                arr.push(Math.floor(Math.random() * 10));
+            }
+            oResult.innerHTML = arr;
+
+            location.hash = Math.random();
+            obj[location.hash] = arr;
+        });
+        
+        window.onhashchange = function(){
+            oResult.innerHTML = obj[location.hash];
+        };
+
+
+    
+    </script>
+</body>
+</html>

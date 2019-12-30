@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        button{
+            background: #cccccc;
+            border-radius: 5px;
+            color: #fff;
+        }
+        #menu{
+            width: 300px;
+            height: 80px;
+            font-size: 10px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div id="zoom ">
+        <button id="amplification">放大</button>
+        <button id="shrink">缩小</button> 
+    </div>
+    <div id="menu">多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.多行文本框高度变化.</div>
+   
+    <script src="../../jQuery/jquery-1.11.2.js"></script>
+
+    <script>
+        $(function(){
+            var $amplification = $("#amplification");
+            var $menu = $("#menu");
+            $amplification.on("click", function(){
+                if(!$menu.is(":animated")){
+                    if($menu.height() < 500){
+                        $menu.animate({ height : "+=50" },400);
+                    }
+                }
+                // console.log("outerHeight=" + $("#menu").outerWidth());
+            });
+            var $shrink = $("#shrink");
+            $shrink.on("click", function(){
+                if(!$menu.is(":animated")){
+                    if($menu.height() > 100){
+                        $menu.animate({ height : "-=50" },400);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

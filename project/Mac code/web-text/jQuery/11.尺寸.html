@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+            border: 10px solid #000;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div</div>
+    <script src="jquery-1.11.2.js"></script>
+
+    <script>
+        $(function(){
+            var $div1 = $("#div1");
+            console.log("width=" + $div1.width()); // 只包含内容
+            console.log("innerWidth=" + $div1.innerWidth()); // 只包含内容和padding
+            console.log("outerWidth=" + $div1.outerWidth()); // 包含内容和padding和border
+            console.log("outerWidth=" + $div1.outerWidth(true));//包含内容和padding和border    当里面的参数为true的时候包含margin
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    const data = [
+      {"id":"1","parentId":"0","name":"阿萨德发多少"},
+      {"id":"2","parentId":"1","name":"账户"},
+      {"id":"3","parentId":"1","name":"阿萨德发多少"}
+    ]
+    var getJsonTree=function(data, parentId){
+      var itemArr=[];
+      for(var i=0; i<data.length; i++){ 
+          var node = data[i];
+          //data.splice(i, 1)
+            if(node.parentId==parentId ){ 
+              var newNode={id:node.id,title:node.name,nodes:getJsonTree(data,node.id)};
+              itemArr.push(newNode);         
+            }
+      }
+      return itemArr;
+    } 
+    var jsonArray = getJsonTree(data,'0');
+    console.log(jsonArray);
+  
+  </script>
+</body>
+</html>

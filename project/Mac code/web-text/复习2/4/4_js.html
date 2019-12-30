@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+js基本数据类型：undefined  null string  boolean  number
+
+ -->
+
+
+    <script>
+        function fn(num){
+            console.log(num + 17);
+        }
+        fn("20");//number型
+
+        function fn(num){
+            console.log(num + 16);
+        } //后定义的给先定义的覆盖了  先调用后定义
+        // 结果为2016  若加号变为减号  则结果为4  乘号为320(若fn("a"),则结果为NaN)
+
+        var fn1 = function(){
+            console.log(123);
+        };
+        fn1(); //先定义后调用
+
+        function fn3(){
+            console.log(arguments instanceof Array);//判断是不是数组  false
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+        } //如不传形参，则可用arguments[]来获取实参
+        fn3(2, 3);
+
+
+        console.log(NaN === NaN);  //false
+
+        var str = "sadqwadasds";
+        console.log(str.indexOf("dqw")); //输出的是第一次出现的位置为2  如果不存在当前字符则返回的是-1
+    
+        var arr = [1, 2, NaN, 3, '1'];
+        console.log(arr.indexOf(1)); // 0
+        console.log(arr.indexOf(NaN)); //-1 因为NaN不等于NaN
+
+
+        var obj1 = {
+            name : "zhangsan",
+            age : 18
+        }
+        var obj2 = obj1;
+        console.log(obj2.name);//zhangsan
+        obj1.name = "lisi";
+        console.log(obj2.name); //lisi
+
+        var a = 5;
+        var b = a;
+        a = 6;
+        console.log(b);//b=5
+
+        if(1){
+            console.log("true");
+        }else{
+            console.log("false");
+        }
+        //1(true)   0(false) 除了0都是true
+        //"abc"(true)   ""(false)  非空字符串都是true
+        //undefined(false)  null(false)   NaN(false)
+
+        console.log(undefined == null);//true
+        console.log(undefined === null);//false
+        console.log(typeof undefined); //undefined
+        console.log(typeof null); //object
+        console.log(5 / 0); //Indinity
+        
+        var i = 0;
+        var timer = setInterval(function(){
+            console.log(i++);
+            if(i == 5){
+                clearInterval(timer);
+            }
+        }, 1000); //返回值为number型
+
+
+
+
+
+    </script>
+</body>
+</html>

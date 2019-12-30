@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            background: #ff0000;
+            padding-top: 100%;  /* 百分比相对于父元素的宽度 */
+        }
+        #div2{
+            background: #00ff00;
+        }
+        #div2::after{
+            content: ''; /* 插入的是行级元素   在内容的后面插入*/
+            display: block;
+            padding-top: 100%;
+        }
+
+        #div3{
+            background: #ffff00;
+            overflow: hidden;
+        }
+        #div3::after{
+            content: '';
+            display: block;
+            margin-top: 100%;
+        }
+        #div4{
+            background: #0000ff;
+            height: 100vw;
+        }
+    </style>
+</head>
+<body>
+<!-- 
+单位：px   %   em    rem   deg(度数)   
+vw(相对于浏览器的宽度)    vh(相对于浏览器的高度)   
+vmax(取vw  和vh中最大的)   vmin
+
+ -->
+
+    <div id="div1"></div>
+
+    <div id="div2"></div>
+
+    <div id="div3"></div>
+
+    <div id="div4"></div>
+</body>
+</html>

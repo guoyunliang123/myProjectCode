@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //  ES5 中 Object.create 的模拟实现，将传入的对象作为创建的对象的原型
+    // 缺点：包含引用类型的属性值始终都会共享相应的值，这点跟原型链继承一样
+    function createObj(o) {
+      function F() {};
+      F.prototype = o;
+      return new F();
+    }
+
+    const person = {
+      name: 'kevin',
+      friends: ['daisy', 'kelly']
+    }
+
+    const person1 = createObj(person);
+    const person2 = createObj(person);
+
+    person1.name = 'person1';
+    console.log(person2.name); // kevin
+
+    person1.friends.push('taylor');
+    console.log(person2.friends); // ["daisy", "kelly", "taylor"]
+  </script>
+</body>
+
+</html>

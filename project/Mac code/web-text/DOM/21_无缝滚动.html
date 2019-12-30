@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        /* list-style: circle;   li前面的点点点变成空心小圆。 */
+        /* list-style: disc;    默认得点点点 */
+        /* list-style: square;      小方块 */
+        /* list-style-image:  url()    可以变成图片 */
+        }
+        #container{
+            height: 200px;
+            width: 320px;
+            overflow: hidden;
+            margin: 100px auto;
+            border: 1px solid #000;
+            position: relative;
+        }
+        #ul1{
+            width: 440px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #ul1 li{
+            width: 100px;
+            height: 100px;
+            background: #000000;
+            color: #fff;
+            line-height: 100px;
+            text-align: center;
+            float: left;
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        #left, #right{
+            width: 50px;
+            height: 30px;
+            background: #cccccc;
+            cursor: pointer;
+            line-height: 30px;
+            text-align: center;
+            float: left;
+            margin-right: 20px;
+        }
+        #arrow{
+            width: 140px;
+            margin: 135px auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="ul1">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="arrow">
+            <div id="left">向左</div>
+            <div id="right">向右</div>
+        </div>
+    </div>
+
+    <script>
+        (function(){
+            var oUl1 = document.getElementById("ul1");
+            var oLeft = document.getElementById("left");
+            var oRight = document.getElementById("right");
+            var speed = 5;
+            oUl1.innerHTML += oUl1.innerHTML;
+            oUl1.style.width = oUl1.offsetWidth * 2 + "px";     
+            setInterval(function(){
+                oUl1.style.left = oUl1.offsetLeft - speed + "px";
+                if(-oUl1.offsetLeft >= oUl1.offsetWidth / 2){
+                oUl1.style.left = 0;
+                }
+                if(oUl1.offsetLeft > 0){
+                    oUl1.style.left = -oUl1.offsetWidth / 2 + "px";
+                }
+            }, 50);
+
+            oLeft.onclick = oRight.onclick = function(){
+                if(this === oLeft){
+                    speed = 5;
+                }else{
+                    speed = -5;
+                }
+            };
+        })();
+    </script>
+</body>
+</html>

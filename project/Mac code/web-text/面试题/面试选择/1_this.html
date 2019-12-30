@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 一
+    function fn() {
+      console.log(this.name);
+    }
+    var obj = {
+      name: 'obj',
+      fn: fn,
+    };
+    fn(); // undefined
+    obj.fn(); // obj
+    var fn2 = obj.fn;
+    fn2(); // undefined
+
+    // 二
+    var fullName = '三角兔';
+    var obj = {
+      fullName: '方块猴',
+      prop: {
+        fullName: '圆圆鼠',
+        getFullName: function () {
+          console.log(this);
+          return this.fullName;
+        }
+      }
+    }
+    console.log(obj.prop.getFullName()); // 圆圆鼠  this => getFullName
+
+    var getFullName = obj.prop.getFullName;
+    console.log(getFullName()); // 三角兔  this => window
+
+
+    // 三  异常处理语句 try catch    throw
+    try {
+      console.log(1);
+      setTimeout(() => {
+        console.log(2);
+      }, 100);
+      setTimeout(() => {
+        console.log(3);
+        throw new Error(5);
+      })
+      console.log(4);
+    } catch (e) {
+      console.log(e);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+        <li>006</li>
+    </ul>
+
+    <script src="jquery-1.11.2.js"></script>
+
+    <script>
+        $("li").on("click", function(){ //点击哪个弹出哪个li的索引
+            console.log($(this).index());
+        });
+
+        var obj1 = {
+            name : "zhangsan",
+            age : 18,
+            school : "heida"
+        };
+        var obj2 = {
+            school : "weichuang"
+        };
+        var obj3 = {
+            sex : "男"
+        };
+        $.extend(obj1, obj2, obj3); //把后面的对象都合并到第一个中去
+        console.log(obj1);  
+
+    </script>
+</body>
+</html>

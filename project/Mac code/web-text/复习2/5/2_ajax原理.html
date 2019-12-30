@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" id="btn" value="click">
+  <div id="div1"></div>
+  
+
+  <script>
+   /*  readyState有5种值：
+    0:请求未初始化
+    1:服务器连接已建立
+    2:请求已接收
+    3:请求处理中
+    4:请求已完成，且响应已就绪
+
+    status状态码常见的有：
+    200:服务器成功返回
+    301:永久重定向
+    302:临时重定向
+    404:资源找不到
+    500:服务器错误 */
+
+    
+    // var xmlhttp = new XMLHttpRequest(); // 标准浏览器
+
+    // var xmlhttp = new ActiveXObject('Microoft.XMLHTTP'); // IE浏览器
+
+    var oBtn = document.getElementById('btn')
+    var oDiv1 = document.getElementById('div1')
+
+    oBtn.onclick = function(){
+      // 1创建xmlhttprequest对象
+      if (window.XMLHttpRequest()) {
+        var xmlhttp = new XMLHttpRequest()
+      }else{
+        var xmlhttp = new ActiveXObject('Microoft.XMLHTTP')
+      }
+
+      // 2发送请求  请求方式    请求地址    异步请求
+      // get方式请求
+      /* xmlhttp.open('GET', 'Url', true)
+      xmlhttp.send(); // 发送请求 */
+
+      // post方式请求  url不能接收数据，只能在send内接收数据   需要加一个请求头
+      xmlhttp.open('POST', 'Url', true)
+      xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+      xmlhttp.send();
+
+
+      // 3执行回调，再回调函数中就可以进行相应的dom操作
+      xmlhttp.onreadystatechange = function(){
+      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+        oDiv1.innerHTML = xmlhttp.responseText
+      }
+      console.log(xmlhttp.readyState); // 0 1 2 3 4
+      }
+    }
+
+    
+  </script>
+</body>
+</html>

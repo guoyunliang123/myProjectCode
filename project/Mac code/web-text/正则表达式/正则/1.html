@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        正则表达式
+
+     -->
+
+     <script>
+        //  var str = "abc"; //new String("abc");
+        var str = "Hellow world";
+        // console.log(str.charAt(1));
+        // console.log(str[1]);
+
+        // for(var i=0; i<str.length; i++){
+        //     console.log(str[i]);
+        // }
+
+        var str2 = "a";
+        console.log(str2.charCodeAt(0));
+
+        //对数组排序
+        var arr = [4, 1, 11, 5]; 
+        console.log(arr.sort());
+
+        var str3 = "123abc";  //检索字符串
+        // if(str3.indexOf("ab") == -1){
+        //     console.log("不包含");
+        // }else{
+        //     console.log("包含");
+        // }
+
+        //截取字符串  第一个参数从哪开始，第二个参数到那结束，如果不传第二个参数，则截取到最后
+        console.log(str3.slice(2, 4));
+
+        //让数组逆序输出
+        str3.split("");//["1", "2", "3", "a", "b", "c"]
+        var arr = str3.split(""); //["1", "2", "3", "a", "b", "c"]
+        arr.reverse();//["c", "b", "a", "3", "2", "1"]
+        console.log(arr.join(""));
+     </script>
+</body>
+</html>

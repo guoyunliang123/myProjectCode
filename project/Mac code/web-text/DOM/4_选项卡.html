@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #container{
+            width: 400px;
+            height: 300px;
+            background: #cccccc;
+            border: 1px solid #000;
+            margin: 100px auto;
+        }
+        #nav{
+            border-bottom: 1px solid #000;
+            height: 30px;
+        }
+        #nav li{
+            width: 120px;
+            height: 30px;
+            background: gray;  
+            float: left;
+            color: #000; 
+            text-align: center;
+            line-height: 30px; 
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        #nav .selected{
+            background: #000000;
+            color: #fff;
+        }
+        #content div{
+            display: none;
+        }
+        #content .selected{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="nav">
+            <li class="selected">html</li>
+            <li>css</li>
+            <li>javascript</li>
+        </ul>
+        <div id="content">
+            <div class="selected">html</div>
+            <div>css</div>
+            <div>javaScript</div>
+        </div>
+    </div>
+
+
+    <script>
+        var oNav = document.getElementById("nav");
+        var aLi = oNav.getElementsByTagName("li");
+        var oContent = document.getElementById("content");
+        var aDiv = oContent.getElementsByTagName("div");
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].index = i;//给每个li自定义属性，保存住当时的i的值
+            //相当于：
+            //aLi[0].index = 0;
+            //aLi[1].index = 1;
+            //aLi[2].index = 2;
+            aLi[i].onclick = function(){
+                for(var i=0; i<aLi.length; i++){
+                    aLi[i].className = "";
+                    aDiv[i].className = "";
+                }
+                this.className = "selected";//class的名字
+                aDiv[this.index].className = "selected"
+            };
+        }
+
+
+        // var obj = document.getElementById("adsasf");
+        // console.log(obj);//null
+        // var a;
+        // console.log(a);//undefined 
+
+        // console.log(obj == a);//true 
+        // console.log(obj === a);//false
+
+        // console.log(typeof obj);//object
+        // console.log(typeof a);//undefined
+    </script>
+</body>
+</html>

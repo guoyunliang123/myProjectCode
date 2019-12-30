@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="echarts.min.js"></script>
+</head>
+<body>
+
+  <div id="chart" style="width:100%;height:500px;"></div>
+
+  <script>
+    var myChart = echarts.init(document.getElementById('chart'));
+
+      myChart.setOption({
+        tooltip: {
+          trigger: 'item',
+          triggerOn: 'mousemove'
+        },
+        series: [
+          {
+            type: 'tree',
+            data: [
+              {
+                name: '人工成本',
+                value: '2016: 96501.36',
+                symbolSize: [10, 10],
+                itemStyle: {
+                    normal: {
+                        label: {
+                            show: false
+                        }
+                    }
+                },
+                children: [
+                    {
+                        name: '应发工资',
+                        value: 4,
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: false
+                                }
+                            }
+                        },
+                        symbolSize: [10, 10],
+                        children: [
+                            {
+                                name: '实发工资',
+                                symbol: 'circle',
+                                symbolSize: [10, 10],
+                                value: 4,
+                                itemStyle: {
+                                    normal: {
+                                        color: '#fa6900',
+                                        label: {
+                                            show: true,
+                                            position: 'right'
+                                        },
+                                        
+                                    },
+                                    emphasis: {
+                                        label: {
+                                            show: false
+                                        },
+                                        borderWidth: 0
+                                    }
+                                },
+                                children: [
+                                    {
+                                        name: '养老保险个人',
+                                        symbol: 'circle',
+                                        symbolSize: [10, 10],
+                                        value: 4,
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#fa6900',
+                                                label: {
+                                                    show: true,
+                                                    position: 'right'
+                                                },
+                                        
+                                            },
+                                            emphasis: {
+                                                label: {
+                                                    show: false
+                                                },
+                                                borderWidth: 0
+                                            }
+                                        },
+                                    },
+                                    {
+                                        name: '失业保险个人',
+                                        symbol: 'circle',
+                                        symbolSize: [10, 10],
+                                        value: 4,
+                                        itemStyle: {
+                                            normal: {
+                                                color: '#fa6900',
+                                                label: {
+                                                    show: true,
+                                                    position: 'right'
+                                                },
+                                        
+                                            },
+                                            emphasis: {
+                                                label: {
+                                                    show: false
+                                                },
+                                                borderWidth: 0
+                                            }
+                                        },
+                                    }
+                                ]
+                            },
+                            {
+                                name: '五险二金及个税',
+                                value: 4,
+                                symbol: 'circle',
+                                symbolSize: [10, 10],
+                                itemStyle: {
+                                    normal: {
+                                        label: {
+                                            show: true,
+                                            position: 'right',
+                                            formatter: "{b}"
+                                        },
+                                        color: '#fa6900',
+                                        borderWidth: 2,
+                                        borderColor: '#cc66ff'
+
+                                    },
+                                    emphasis: {
+                                        borderWidth: 0
+                                    }
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        name: '五险二金单位缴纳',
+                        symbolSize: [10, 10],
+                        itemStyle: {
+                            normal: {
+                                label: {
+                                    show: false
+                                }
+                                
+                            }
+                        },
+                        value: 4,
+                        children: [
+                            {
+                                name: '养老保险单位',
+                                symbol: 'circle',
+                                symbolSize: [10, 10],
+                                value: 4,
+                                itemStyle: {
+                                    normal: {
+                                        color: '#fa6900',
+                                        label: {
+                                            show: true,
+                                            position: 'right'
+                                        },
+                                        
+                                    },
+                                    emphasis: {
+                                        label: {
+                                            show: false
+                                        },
+                                        borderWidth: 0
+                                    }
+                                }
+                            },
+                            {
+                                name: '失业保险单位',
+                                symbol: 'circle',
+                                symbolSize: [10, 10],
+                                value: 4,
+                                itemStyle: {
+                                    normal: {
+                                        color: '#fa6900',
+                                        label: {
+                                            show: true,
+                                            position: 'right'
+                                        },
+                                        
+                                    },
+                                    emphasis: {
+                                        label: {
+                                            show: false
+                                        },
+                                        borderWidth: 0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+              }
+            ],
+            top: '5%',
+            left: '10%',
+            bottom: '1%',
+            right: '20%',
+            symbolSize: 7,
+            label: {
+              normal: {
+                position: 'left',
+                verticalAlign: 'middle',
+                align: 'right',
+                fontSize: 9
+              }
+            },
+            leaves: {
+              label: {
+                normal: {
+                  position: 'right',
+                  verticalAlign: 'middle',
+                  align: 'left'
+                }
+              }
+            },
+            expandAndCollapse: true,
+            animationDuration: 550,
+            animationDurationUpdate: 750
+          },
+        ]
+      });
+  </script>
+</body>
+</html>

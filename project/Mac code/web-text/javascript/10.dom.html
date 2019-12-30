@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <ul id="ul1">
+        <li>item 1</li>
+        <li class="aa">item 2</li>
+        <li class="aa">item 3</li>
+    </ul>
+    <script>
+        //var oBtn = id("btn");
+        //var aLi = getByClass("aa", getById("ul1"));
+
+        // function getById(sid){
+        //     return document.getElementsById(sid);
+        // }
+
+        // function getByClass(className, context){
+        //     context = context || document;
+        //     return context.getElementsByClassName(className);
+        // }
+        
+        // function getByTag(tagName, context){
+        //     context = context || document;
+        //     return context.getElementsByTagName(tagName);
+        // }
+
+        function $(selector, context){
+            context = context || document;
+            switch(selector.charAt(0)){
+                case "#": //id
+                    return [document.getElementById(selector.substring(1))];
+                    break;
+                case ".": //class   
+                    return context.getElementsByClassName(selector.substring(1));
+                    break;
+                default: //tag
+                    return context.getElementsByTagName(selector);
+                    break;
+            }
+        }
+        //$("aa");  //selector = #xx(id) | .xx(class) | xx(标签)
+        
+        var oBtn = $("#btn")[0];
+        oBtn.onclick = function(){
+            alert("1111");
+        }; 
+
+
+        var aLi = $(".aa");
+        for(var i=0; i<aLi.length; i++){
+            aLi[i].onclick = function(){
+                alert(this.innerHTML);
+            }
+        }
+    </script>
+</body>
+</html>

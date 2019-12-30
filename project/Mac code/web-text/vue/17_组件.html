@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <lig></lig>
+        <my-component :aa="msg"></my-component>
+    </div>
+
+    <div id="app2">
+        <lig></lig>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        Vue.component('lig', {
+            template: 
+            `<div>
+                <h1>这是一个全局组件</h1>
+                <div>divdiv</div>
+            </div>`
+        });
+
+
+
+
+
+        new Vue({
+            el : '#app',
+            data : {
+                msg : '这是一个局部组件'
+            },
+            components: {
+                myComponent: {
+                    template: `<h1>{{aa}}</h1>`,
+                    props: ['aa']
+                }
+            }
+        });
+
+        new Vue({
+            el : '#app2'
+        });
+    
+    
+    </script>
+</body>
+</html>

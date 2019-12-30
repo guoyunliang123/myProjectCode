@@ -1,0 +1,125 @@
+
+//矩阵每行的数量
+function numOfRows(board) { return board.length; }
+//矩阵每列的数量
+function numOfCols(board) { return board[0].length; }
+//将矩阵变成字符串
+function boardToString(board) {
+  // First the top-header
+  var header = '   ';
+  //循环矩阵的列保存在字符串header中
+  for (var c = 0; c < numOfCols(board); c++)
+      header += c + ' ';
+
+  // Then the side-header + board
+  var sideboard = [];
+  //循环矩阵的行保存在数组sideboard中
+  for (var r = 0; r < numOfRows(board); r++) {
+      //将board数组转化成字符串放到sideboard数组中
+      sideboard.push(r + ' [' + board[r].join(' ') + ']');
+  }
+  //将矩阵的列和行拼成字符串
+  return header + '\n' + sideboard.join('\n');
+}
+//翻转矩阵的行
+function flipRow(board, row) {
+  for (var c = 0; c < numOfCols(board); c++) {
+      //矩阵每行的列等于1-当前那行的列来进行0和1的转换
+      board[row][c] = 1 - board[row][c];
+  }
+}
+//翻转矩阵的列
+function flipCol(board, col) {
+  for (var r = 0; r < numOfRows(board); r++) {
+      //矩阵每列的行等于1-当前那列的行来进行0和1的转换
+      board[r][col] = 1 - board[r][col];
+  }
+}
+//翻转矩阵函数
+function playFlippingBitsGame(rows, cols) {
+  //位操作符判断，矩阵位3*3矩阵
+  rows = rows | 3;
+  cols = cols | 3;
+  var targetBoard = [];
+  var manipulatedBoard = [];
+  // Randomly generate two identical boards.
+  //随机生成两个矩阵
+  for (var r = 0; r < rows; r++) {
+    targetBoard.push([]);
+    manipulatedBoard.push([]);
+    for (var c = 0; c < cols; c++) {
+        targetBoard[r].push(Math.floor(Math.random() * 2));
+        manipulatedBoard[r].push(targetBoard[r][c]);
+    }
+  }
+  // Naive-scramble one of the boards.
+  //当两个矩阵随机生成了相等的矩阵之后再重新打乱进行生成
+  while (boardToString(targetBoard) == boardToString(manipulatedBoard)) {
+    var scrambles = rows * cols;
+    //矩阵中的数字是0或者1
+    while (scrambles-- > 0) {
+      if (0 == Math.floor(Math.random() * 2)) {
+          flipRow(manipulatedBoard, Math.floor(Math.random() * rows));
+      }
+      else {
+          flipCol(manipulatedBoard, Math.floor(Math.random() * cols));
+      }
+    }
+  }
+  // Get the user to solve.
+  //游戏开始的输出
+  alert(
+    'Try to match both boards.\n' +
+    'Enter `r<num>` or `c<num>` to manipulate a row or col or enter `q` to quit.'
+  );
+  var input = '', letter, num, moves = 0;
+  //当目标矩阵和操作后的矩阵不一样的时候并且输入不等于字符串'q'的时候进去while中的代码
+  while (boardToString(targetBoard) != boardToString(manipulatedBoard) && input != 'q') {
+    //定义input输入的格式
+    input = prompt(
+      'Target:\n' + boardToString(targetBoard) +
+      '\n\n\n' +
+      'Board:\n' + boardToString(manipulatedBoard)
+    );
+    try {
+      //获取输入的第一个字符
+      letter = input.charAt(0);
+      //获取除了第一个字符之后的所以字符
+      num = parseInt(input.slice(1));
+      //输入字符'q'退出
+      if (letter == 'q')
+        break;
+        //如果num不是数字或者，第一个字符不是'r'并且不是'c'，或者第一个字符是'r'但是num的数字大于了行数，或者第一个字符是'c'但是num的数字大于了列数，则返回Error
+        if (isNaN(num)
+          || (letter != 'r' && letter != 'c')
+          || (letter == 'r' && num >= rows)
+          || (letter == 'c' && num >= cols)
+        ) {
+          throw new Error('');
+        }
+        //如果第一个字符等于字符'r'则是矩阵行的输入，走flipRow函数
+        if (letter == 'r') {
+          flipRow(manipulatedBoard, num);
+        }
+        //否则是是矩阵列的输入，走flipCol函数
+        else {
+          flipCol(manipulatedBoard, num);
+        }
+        moves++;
+      }
+      //输入格式错误输出'Uh-oh, there seems to have been an input error'
+      catch(e) {
+        alert('Uh-oh, there seems to have been an input error');
+      }
+    }
+    //如果输入为字符串'q'则退出游戏
+    if (input == 'q') {
+      alert('~~ Thanks for playing ~~');
+    }
+    //成功后会输出通过多少次变换将数组转化成功
+    else {
+      alert('Completed in ' + moves + ' moves.');
+    }
+}
+//调用开始操作翻转矩阵游戏
+playFlippingBitsGame(3,3);

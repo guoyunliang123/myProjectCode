@@ -1,0 +1,62 @@
+/* beauty的开始 */
+#beauty h2{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 35px;
+}
+#beauty .method{
+    color: #525252;
+    font-size: 24px;
+}
+#beauty .method:hover {
+    color: #fa558f;
+}
+#beauty img{
+    width: 935px;
+    height: 502px;
+}
+#beauty .container{
+    margin-top: 5px;
+}
+.container p{
+    color: #999;
+    font-size: 14px;
+    width: 935px;
+    line-height: 24px;
+}
+#beauty .particulars{
+    width: 80px;
+    height: 40px;
+    color: #fff;
+    background: #fa558f;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+    margin: 15px 0;
+    font-size: 14px;
+}
+#beauty .particulars:hover{
+    background: #fa55de;
+}
+/* beauty的结束 */
+
+/* footer的开始 */
+#footer{
+    width: 1349px;
+    height: 82px;
+    background: #fa558f;
+    overflow: hidden;
+    margin-top: 50px;
+}
+#me a{
+    color: #fff;
+    display: block;
+    margin-top: 25px;
+    font-size: 25px;
+}
+#girl p{
+    color: #fff;
+    float: right;
+    margin-bottom: 40px;
+}
+/* footer的结束 */

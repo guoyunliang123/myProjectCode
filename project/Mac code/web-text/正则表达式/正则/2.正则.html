@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var str = "123abc";
+        // var reg = /ab/;
+        // var reg2 = new RegExp("ab");
+
+        // console.log(reg.test(str));
+        // console.log(reg2.test(str));
+        // console.log(reg2.exec(str));
+
+        // var str = "123abbc";
+        // var reg = /b{2}/;
+        // console.log(reg.exec(str));//如果匹配不上则返回的是null
+
+        // var str2 = "123aaaabc";
+        // var reg = /a{3,4}/;
+        // console.log(reg.exec(str2)); //贪心匹配，选择最多的匹配   /a{3,4}?/为非贪心模式
+
+        // var str = "123aabcaaa"; //  /a*/=>大于1个
+        // var reg = /a{2,}/; //或者是/a*/<=>/a{0,}/  /c+/<=>/c{1,}/   /c?/<=>/c{0,1}/
+        // console.log(reg.exec(str)); //aa
+
+        // var str = " b";
+        // var reg = /^b|c.+/; // =>^b/c.+
+        // console.log(reg.exec(str.trim())); //.trim()方法 会去掉字符串中的空格
+
+        // var str = "This is a test \n String";
+        // var reg = /\s.+/;
+        // console.log(reg.exec(str));
+
+        // var str = "abba";
+        // var reg = /(\w)(\w)\2\1/;
+        // console.log(reg.exec(str));
+
+        // var str = "babcb";
+        // console.log(str.replace("b", "x"));// 只替换了第一个
+        // console.log(str.replace(/b/g, "x"));
+
+        var str = "sadaca";
+        var reg = /c+/;
+        console.log(reg.exec(str));
+        
+        
+        //  /a*/<=>/a{0,}/  /c+/<=>/c{1,}/   /c?/<=>/c{0,1}/
+        //  /a{3,4}?/为非贪心模式
+        //  /^开头   结尾$/
+        // "."会匹配字符串中除了换行符\n之外的所有字符
+        //  /b|c/ 匹配b或者c
+        // [abc]表示a或者b或者c中的任意一个字符
+        // [^abc]表示不能是a，b或者c中的任何一个  [0-9]<=>/\d/表示数字  [^0-9]<=>/\D/表示非数字  [^a-z]表示非小写字母
+        //  /\bc/ 表示左边界：以c开头的     /c\b/表示右边界：以c结尾的
+        //  /\Bc/表示非边界
+        // /\f/表示换页符  /\n/表示匹配换行符  /\r/匹配回车   /\t/匹配制表符   /\v/匹配垂直制表符
+        //  /\s/匹配单个空格  等同于[\f\n\r\t\v]  /\S/表示非空格
+        //   /\w/表示单词字符等同于[a-zA-Z0-9_]   /\W/表示非单词字符等同于[^a-zA-Z0-9_]
+        //  /c/g 表示匹配字符串中所有的c
+        //  /c/i 不区分大小写的c
+        //  /c/m  是修改^和$在正则表达式中的作用，让他们分别表示行首和行尾
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            height: 2000px;
+        }
+        #div1{
+            width: 500px;
+            height: 500px;
+            border: 20px solid rgba(0, 0, 0, 0.5);
+            /* background-color: #ff0000; */
+            background: url(imgs/a1.jpg) no-repeat;
+            margin: 50px;
+        }
+        #div2{
+            font-size: 100px;
+            width: 500px;
+            height: 500px;
+            background: url(a1.jpg) no-repeat;
+            font-weight: bolder;
+            -webkit-background-clip: text;      /* 字体剪切 */
+            color: transparent;  
+        }
+        /*  */
+        #div3{
+            width: 800px;
+            height: 400px;
+            background: url(a1.jpg) no-repeat;
+            border: 1px solid;
+
+            /* background-size: 700px 400px;   /* 改变图片大小,图片会失帧 */ 
+            /* background-size: 50% 50%;         /* 比例相对于div的大小缩放 */  
+            /* background-size: contain;  /* 将背景图片等比缩放到宽度或高度与容器的宽度或高度相等，并且始终被包含在容器内 */ 
+            /* background-size: cover;  /* 将背景图片等比缩放到完全覆盖容器，背景图像有可能超出容器 */ 
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+
+    <div id="div2">理工大学</div>
+
+    <div id="div3"></div>
+</body>
+</html>

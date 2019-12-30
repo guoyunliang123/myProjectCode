@@ -1,0 +1,25 @@
+<h1>todolist</h1>
+<div class="todolist">
+  <input type="text" [(ngModel)]="keyword" (keyup)="doAdd($event)" class="form_input">
+
+  <hr>
+
+  <h3>待办事项</h3>
+
+  <ul>
+    <!-- angular 中一个标签上不可以绑定多个指令，可以使用 [hidden] -->
+    <li *ngFor="let item of todolist;let key=index;" [hidden]="item.status ==1">
+      <input type="checkbox" [(ngModel)]="item.status" (change)="checkboxChange()" /> {{item.title}}----<button
+        (click)="deleteDate(key)">X</button>
+    </li>
+  </ul>
+
+  <h3>完成事项</h3>
+
+  <ul>
+    <li *ngFor="let item of todolist;let key=index;" [hidden]="item.status ==0">
+      <input type="checkbox" [(ngModel)]="item.status" (change)="checkboxChange()" /> {{item.title}}----<button
+        (click)="deleteDate(key)">X</button>
+    </li>
+  </ul>
+</div>

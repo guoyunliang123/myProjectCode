@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 简单粗暴的好方法，就是有一个问题，不能拷贝函数
+    let arr = ['old', 1, true, ['old1', 'old2'], {
+      old: 1
+    }];
+    let new_arr = JSON.parse(JSON.stringify(arr));
+    console.log(new_arr); // ['old', 1, true, ['old1', 'old2'], {old: 1}]
+
+    let arr1 = [function () {
+      console.log(a);
+    }, {
+      b: function () {
+        console.log(b);
+      }
+    }]
+    let new_arr1 = JSON.parse(JSON.stringify(arr1));
+    console.log(new_arr1); // [null, Object]
+
+    // 深拷贝实现
+    const deepCopy = function () {
+      if (typeof obj !== 'object') return;
+      const newObj = obj instanceof Array ? [] : {};
+      for (let key in obj) {
+        // hasOwnProperty() 方法会返回一个布尔值，指示对象自身属性中是否具有指定的属性
+        if (obj.hasOwnproperty(key)) {
+          // 判断一下属性值的类型，如果是对象，递归调用深拷贝函数
+          newObj[key] = typeof obj[key] === 'object' ? deepCopy(obj[key]) : obj[key];
+        }
+      }
+      return newObj;
+    }
+  </script>
+</body>
+
+</html>

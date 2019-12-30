@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 对数组的每一个元素执行一次提供的函数（回调函数）
+    // 1、函数没有返回值，即 undefined
+    // 2、不对原数组产生影响
+    function logArrayElements(element, index, array) {
+      console.log('a[' + index + '] = ' + element);
+    }
+
+    // 注意索引 2 被跳过了，因为在数组的这个位置没有项
+    [2, 5, , 9].forEach(logArrayElements);
+    // logs:
+    // a[0] = 2
+    // a[1] = 5
+    // a[3] = 9
+  </script>
+</body>
+
+</html>

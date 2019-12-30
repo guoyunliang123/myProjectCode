@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>我的第一段 JavaScript</h1>
+
+<p id="demo">
+JavaScript 能改变 HTML 元素的样式。
+</p>
+
+<button type="button" id="add">点击这里</button>
+<input type="button" onclick="add()" value="点我">
+
+<script>
+  var x = document.getElementById("demo")
+  var demoColor = x.style.color;
+function myFunction()
+{
+ // 找到元素
+x.style.color="#ff0000";          // 改变样式
+}
+function add(){
+x.style.color = "#000"
+}
+var aAdd = document.getElementById("add");
+aAdd.onclick = function(){
+  myFunction()
+}
+</script>
+
+
+
+</body>
+</html>

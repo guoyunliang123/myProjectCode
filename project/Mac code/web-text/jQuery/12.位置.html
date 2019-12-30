@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background: #00ff00;
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div2">
+        <div id="div1"></div>
+    </div>
+
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        var $div1 = $("#div1");
+        console.log($div1.offset());//相对于文档距离
+        console.log($div1.position());// 相对于离他最近的已经定位的祖先元素的距离
+        console.log($div1.offsetParent());//离他最近的已经定位的祖先元素
+
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        json:javascript   object   notation
+        兼容性：http://json.org  下载json2.js
+     -->
+
+    <script>
+        var obj1 = {
+            name : "zhangsan",
+            age : 18
+        };    
+        console.log(obj1);
+        var str1 = JSON.stringify(obj1); //object  =>  string
+        console.log(typeof str1);
+
+        var obj2 = JSON.parse(str1);  // string => object
+        console.log(obj2);
+
+        eval("alert(1);");  //不安全的
+        //JSON.parse("alert(1);");  //安全的
+        
+        //深拷贝:封装函数、json
+        function cloneObj(){
+            var newObj = {};
+            for(var p in obj){
+                if(typeof obj [p] === 'object'){
+                    newObj[p] = arguments.callee(obj[p]); //递归 调用自己
+                }else{
+                    newObj[p] = obj[p];
+                }
+            }
+            return newObj;
+        }
+    </script>
+
+
+<!-- xml -->
+<user>
+    <username>zhangsan</username>
+    <age>18</age>
+    <school>ligong</school>
+</user>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #left, #center, #right{
+            height: 300px;
+            flex-flow: 1;
+        }
+        #left{
+            background: #ff0000;
+        }
+        #center{
+            background: #00ff00;
+        }
+        #right{
+            background: #0000ff;
+        }
+        #main{
+            display: flex;  /* 新的， 父元素同意 */
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="left"></div>
+        <div id="center"></div>
+        <div id="right"></div>
+    </div>
+</body>
+</html>

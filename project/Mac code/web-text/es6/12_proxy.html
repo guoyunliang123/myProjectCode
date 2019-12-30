@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // let obj = {
+        //     name : 'lisi'
+        // };
+        // console.log(obj.name);
+
+        //钩子函数  对象的属性
+        // var pro = new Proxy({
+        //     name : 'lisi',
+        //     age : 18
+        // }, {
+        //     get : (target, key, property) =>{
+        //         console.log(target); //当前对象
+        //         console.log(key);  //获取谁key就是谁
+        //         console.log(property);  //pro对象
+        //         return target[key];
+        //     },
+        //     set : (target, key, value, receiver) => {
+        //         console.log(target);
+        //         console.log(key);
+        //         console.log(value);
+        //         console.log(receiver);
+        //         return target[key] = value;
+        //     }
+        // });
+        // pro.name = 'zhangsan';
+        // console.log(pro.name);
+
+        //对象的方法
+        let target = () => {
+            console.log("target fn");
+            // return "target fn";
+        };
+        let handler = {
+            apply(target, ctx, args) {
+                console.log('apply');
+                return Reflect.apply(...arguments);
+            }
+        };
+        let pro = new Proxy(target, handler);
+        pro();
+
+
+
+
+        // let target = () => {
+        // console.log("target fn");
+        // // return "target fn";
+        // };
+        let handler = {
+            apply(target, ctx, args) {
+                console.log('apply');
+                return Reflect.apply(...arguments);
+            }
+        };
+        let pro = new Proxy({
+            fn() {
+                console.log('fn');
+            }
+        }, handler);
+        pro.fn();
+    </script>
+</body>
+
+</html>

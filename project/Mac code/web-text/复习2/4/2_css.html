@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            background: #00ff00;
+        }
+        #ul1 li{
+            float: left;
+            list-style: none;
+        }
+        /* 解决元素塌陷 */
+        #ul1{
+            overflow: hidden;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 
+内联样式优先级大于内部样式
+权重值：内联>id>class>tag
+#div1 .aa  div1后所有的class叫aa的都会被选中
+#div1 > .aa  div1后亲儿子class叫aa的会被选中 
+#div1.aa  id叫div1同时class叫aa的会被选中
+    
+标准盒模型和怪异盒模型的转化： box-sizing: border-box;
+-->
+    <div id="div1" style="background: #ff0000;">div</div>
+
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+    </ul>
+    <h1>hhhhh</h1>
+</body>
+</html>

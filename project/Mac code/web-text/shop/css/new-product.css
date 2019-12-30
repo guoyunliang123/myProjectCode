@@ -1,0 +1,128 @@
+/* product-model的开始 */
+#product-model h2{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #3C3B3B;
+}
+#product-model .screening{
+    width: 240px;
+    height: 250px;
+}
+.screening h3{
+    width: 230px;
+    height: 35px;
+    color: #fff;
+    background: #464646;
+    font-size: 14px;
+    line-height: 35px;
+    padding-left: 10px;
+}
+.taste li{
+    padding-left: 10px;
+    width: 230px;
+    height: 32px;
+    cursor: pointer;
+    color: #333333;
+    margin: 0 auto;
+    background: #f9f9f9;
+    margin-top: 10px;
+    position: relative;
+    font-size: 14px;
+    line-height: 35px;
+}
+.taste li img{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+.clearfix .sky-form{
+    width: 240px;
+    height: 410px;
+}
+.sky-form h3{
+    width: 230px;
+    height: 35px;
+    font-size: 14px;
+    background: #464646;
+    color: #fff;
+    padding-left: 10px;
+    line-height: 35px;
+}
+#product-model .rsidebar{
+    width: 240px;
+    height: 667px;
+    float: left;
+}
+.product-img img{
+    width: 246px;
+    height: 246px;
+    border: 1px solid #cccccc
+}
+.product-info{
+    padding: 11px 17px;
+    background: #fcf9ff;
+    width: 213px;
+    height: 184px;
+}
+.product-info h4{
+    height: 40px;
+    width: 214px;
+    font-size: 17px;
+}
+.product-info span{
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+}
+.product-info input{
+    width: 158px;
+    height: 29px;
+    text-indent: 10px;
+    border: 1px solid #afafaf;
+    margin: 12px 1px;
+}
+.product-info .btn{
+    display: inline-block;
+    color: #fff;
+    font-weight: 600;
+    width: 138px;
+    height: 42px;
+    border-radius: 5px;
+    background: #ef8743;;
+    border: 0;
+    font-size: 15px;
+    cursor: pointer;
+}
+.product-info .btn:hover {
+    background: #FF9000;
+}
+#product-model .product-sec{
+    float: right;
+    width: 855px;
+    height: 976px;
+}
+.product-sec .figure{
+    float: left;
+    margin-left: 20px;
+}
+/* product-model的结束 */
+
+/* footer的开始 */
+#footer{
+    width: 1349px;
+    height: 82px;
+    background: #fa558f;
+    overflow: hidden;
+}
+#me a{
+    color: #fff;
+    display: block;
+    margin-top: 25px;
+    font-size: 25px;
+}
+#girl p{
+    color: #fff;
+    float: right;
+    margin-bottom: 40px;
+}
+/* footer的结束 */

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <button id="btn">点击</button>
+        <ul id="ul1">
+            <li>1111</li>
+            <li class="aa">2222</li>
+            <li class="aa">3333</li>
+        </ul>
+
+        <script>
+            //document.getElementById("aa");   返回的是一个dom对象
+            //context.getElementsByTagName("li");   返回的是所有的li   返回的是一个数组
+            //context.getElementsByClassName("aa");  有兼容性问题   context上下文的意思
+            //context.getElementsByName("li");
+            //document.querySelector()     默认只选中第一个   有兼容性问题
+            //document.querySelectorAll()     选中所有的
+
+            var oBtn = document.querySelector("#btn");
+            oBtn.onclick = function(){
+                alert("hhhh");
+            };
+
+            // var aLi = document.querySelectorAll("li");
+            // for(var i=0; i<aLi.length; i++){
+            //     aLi[i].onclick = function(){
+            //         alert(this.innerHTML);
+            //     };
+            // }
+            
+            var aLi = document.querySelectorAll(".aa");
+            for(var i=0; i<aLi.length; i++){
+                aLi[i].onclick = function(){
+                    alert(this.innerHTML);
+                };
+            }
+
+        </script>
+    </body>
+</html>
+<!-- 
+
+ js对象有三种：
+ 1、内置对象
+ 2、自定义对象
+ 3、dom对象
+
+
+
+ dom操作
+ 1、元素查找
+ 2、元素遍历
+ 3、元素操纵
+
+
+ 类：具有相同的属性和方法的对象的集合
+ -->

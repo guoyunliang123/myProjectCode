@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        #div2{
+            width: 400px;
+            height: 400px;
+            background: #00ff00;
+            position: relative;
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="div2">
+        <div id="div1"></div>
+    </div>
+    <script>
+        var oDiv = document.getElementById("div1");
+        // console.log(oDiv.offsetWidth);
+        // console.log(oDiv.offsetHeight);
+        //oDiv.style.width  只能获取内联样式的宽度，可以赋值
+        //offsetWidth   只能取值（没有单位）不能赋值  可以取到border和padding的值
+
+        //console.log(oDiv.offsetTop);//获取的位置是离它最近的已经定位的祖先元素
+        //console.log(oDiv.offsetLeft);//获取的位置是离它最近的已经定位的祖先元素
+        console.log(oDiv.offsetParent);//获取的是离它最近的已经定位的对象
+    </script>
+</body>
+</html>

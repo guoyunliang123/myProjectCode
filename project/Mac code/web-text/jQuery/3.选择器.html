@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="aa" id="div1">
+        <p>pppp
+            <p>p1p1p1p1</p>
+        </p>
+    </div>
+    <div class="aa" id="div2">2</div>
+    <ul id="ul1">
+        <li id="li1">001</li>
+        <li>002</li>
+        <li class="aa">003</li>
+        <li>004</li>
+    </ul>
+
+    <script src="jquery-1.11.2.js"></script>
+
+    <script>
+        $(function () {
+            //$("*").css("background", "red");//选中所有的 
+            //$(".aa").css("background", "red");//选中class叫aa的   class选择器
+            //$("#div1").css("background", "red");//选中id叫div1的   id选择器
+            //$("#div1, #div2").css("background", "red");//选中id叫div1和div2的   分组选择器 
+            //$("#div1 > p").css("background", "red"); //亲子代选择器
+            //$("#div1 p").css("background", "red"); //后代选择器
+            //$("#li1 + li").css("background", "red"); //兄弟选择器 选中后面的一个兄弟
+            //$("#li1 ~ li").css("background", "red"); //兄弟选择器 选中后面的所有兄弟 
+            //$("#ul1 li:eq(0)").css("background", "red"); //选中ul下面第一个li
+            //$("#ul1 li:even").css("background", "red"); //  选中列表中所有偶数的
+            //$("#ul1 li:odd").css("background", "green");//  选中列表中所有奇数的
+            //$("#ul1 li:first").css("background", "red");   //第一个li
+            //$("#ul1 li:last").css("background", "red");   //最后一个li
+            //$("#ul1 li:gt(1)").css("background", "red");  //下标大于1的
+            //$("#ul1 li:lt(2)").css("background", "red");   //下标小于2的
+            //$("#ul1 li:not(.aa)").css("background", "red");   //不想选中class叫aa的
+            //$("#ul1 li:contains(3)").css("background", "red");   //选中内容包含3的
+            //$("#ul1 li:first-child").css("background", "red");   //选中ul1下的第一个li孩子
+        })
+    </script>
+</body>
+
+</html>

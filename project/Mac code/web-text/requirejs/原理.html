@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">add</button>
+
+    <script>
+        var oBtn = document.getElementById("btn");
+        oBtn.onclick = function(){
+            var oScript = document.createElement("script");
+            oScript.src = "xx.js";
+            document.body.appendChild(oScript);
+        }; //动态创建js文件
+
+        // defer： 等到html解析完成后再加载js文件，能够保证js执行顺序(IE提出的)
+        // async:  先下载完先执行，后下载完后执行，不一定能够保证js加载顺序(w3c提出的)
+        /*
+        AMD(asynchronization module definition 异步模块定义):
+           requirejs   依赖前置
+        
+        
+        CMD(common module definition 通用模块定义):
+           seajs    依赖就近
+        
+        
+        
+        
+        */
+    </script>
+</body>
+</html>

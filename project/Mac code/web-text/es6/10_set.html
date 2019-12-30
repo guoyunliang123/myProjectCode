@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+        // set里面的内容不允许重复
+        // let s1 = new Set([1, 2, 3]);
+        // console.log(s1);
+
+        // // 数组去除重复的
+        // let arr = [1, 2, 3, 4, 1, 2, 3];
+        // let s2 = new Set(arr);
+        // console.log(s2);
+
+        // let arr2 = [];
+        // for (let item of arr) {
+        //     if(!arr2.includes(item)){
+        //         arr2.push(item);
+        //     }
+        // }
+        // console.log(arr2);
+
+        // s1.add(5); //往数组里面填值
+        // s1.delete(3); //删除数组里面的值
+        // s1.clear(); //清空数组里面的值
+        // console.log(s1);
+        // console.log(s1.has(2)); //判断数组里是否含有这个值
+        // console.log(s1.size);  //获取set的长度
+        
+
+        //下标则为当前的内容
+        // let s1 = new Set(['a', 'b', 'c', '1']);
+        // for (let [index, item] of s1.entries()) {
+        //     console.log(`${index}:${item}`);
+        // }
+
+        let ws = new WeakSet();
+        let obj = {name : 'zhangsan'};
+        let obj1 = {name : 'zhangsan'};
+        ws.add(obj); //往WeakSet内添加对象  不能放在构造函数里
+        ws.add(obj1);
+        console.log(ws);
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

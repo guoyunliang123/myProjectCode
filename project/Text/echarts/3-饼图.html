@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="echarts.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width:90%;height:500px;"></div>
+
+
+
+  <script>
+    var myChart = echarts.init(document.getElementById('chart'));
+    var datax = '2018';
+      options = {
+        legend: {},
+        tooltip: {
+          trigger: 'axis',
+          showContent: false
+        },
+        // 更改饼图颜色
+        color:['red', 'green','yellow'],
+        dataset: {
+          // 折线图数据
+          source: [
+            ['product', '2016', '2017', '2018'],
+            ['实发工资', 49934, 61093, 114032],
+            ['五险二金个人及个税', 31092, 40132, 51022],
+            ['五险二金单位缴纳', 19823, 21021, 31021]
+          ]
+        },
+        xAxis: {type: 'category'},
+        yAxis: {
+          gridIndex: 0,
+          min: 0,
+          max: 120000,
+          // 刻度差值
+          interval: 20000
+        },
+        grid: {top: '55%'},
+        series: [
+          {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+          {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+          {type: 'line', smooth: true, seriesLayoutBy: 'row'},
+          {
+            type: 'pie',
+            id: 'pie',
+            radius: '30%',
+            center: ['50%', '25%'],
+            label: {
+              formatter:'{@['+ 2018 +']}'
+            },
+            // 默认显示的数据
+            encode: {
+              itemName: 'product',
+              value: datax,
+              tooltip: datax
+            }
+          }
+        ]
+      };
+
+      myChart.on('updateAxisPointer', function (event) {
+        var xAxisInfo = event.axesInfo[0];
+        if (xAxisInfo) {
+          var dimension = xAxisInfo.value + 1;
+          myChart.setOption({
+            series: {
+              id: 'pie',
+              label: {
+                formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+              },
+              encode: {
+                value: dimension,
+                tooltip: dimension
+              }
+            }
+          });
+        }
+      }
+    );
+    myChart.setOption(options);
+  </script>
+</body>
+</html>

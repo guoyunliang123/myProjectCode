@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 使用指定的函数测试所有元素，并创建一个包含所有通过测试的元素的新数组
+    // 1、返回一个满足过滤条件的新数组
+    // 2、不会改变原数组
+    var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
+
+    const result = words.filter(word => word.length > 6);
+
+    console.log(result);
+    // expected output: Array ["exuberant", "destruction", "present"]
+  </script>
+</body>
+
+</html>

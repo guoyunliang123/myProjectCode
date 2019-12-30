@@ -1,0 +1,57 @@
+#header{
+    height: 100px;
+    display: flex;
+}
+#menu{
+    width: 82px;
+    height: 46px;
+    margin-top: 27px;
+    margin-left: 15px;
+    cursor: pointer;
+}
+#club{
+    width: 82px;
+    height: 42px;
+    font-size: 14px;
+    margin-right: 15px;
+    margin-top: 29px;
+}
+#club span a{
+    color: #b89f7a;
+    font-weight: bold;
+    transition: all 1s ease;
+}
+#logo{
+    flex-grow: 1;
+    text-align: center;    
+}
+#logo img{
+    width: 73px;
+    height: 73px;
+    margin-top: 9px;
+}
+
+#banner{
+    height: 640px;
+}
+#banner img{
+    width: 100%;
+}
+#banner img:nth-child(2){
+    display: none;
+}
+
+@media (max-width: 991px) {
+    #banner img:nth-child(1){
+        display: none;
+    }
+    #banner img:nth-child(2){
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+    #club{
+        font-size: 12px;
+    }
+}

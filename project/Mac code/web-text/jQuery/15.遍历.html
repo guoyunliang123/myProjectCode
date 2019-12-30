@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .aa{
+            background: #ff0000;
+        }
+    </style>
+</head>
+<body>
+
+    <ul id="ul1">
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+    </ul>
+    <div id="div1">div1
+        <div id="div2">div2
+            <div id="div3">div3</div>
+        </div>
+    </div>
+    <ul id="ul2">
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+    </ul>
+    
+    <script src="jquery-1.11.2.js"></script>
+
+    <script>
+        $(function(){
+            //$("#ul1 li:eq(1)").addClass("aa");
+            //$("#ul1 li").eq(1).addClass("aa");
+            
+            // $("#ul1").on("click", function(e){
+            //     var $target = $(e.target);
+            //     if($target.is("li")){
+            //         $target.css("background", "red");
+            //     }
+            // });
+
+            //$("#ul1 li").eq(0).next().addClass("aa"); //扩大结果集 
+            //$("#ul1 li").eq(0).next().andSelf().addClass("aa"); //扩大结果集 
+
+            //console.log($("#div1").contents()); //获取当前文本对象
+
+            //$("#ul1 li").eq(0).next().addClass("aa").end().addClass("aa");
+            //$("#div1").children("#div2").addClass("aa").children("#div3").css("background", "green").end().end().css("background", "yellow");
+        
+            // $("#div1").children("#div2").addClass("aa");//children 是亲子代
+            // $("#div1").find("#div3").addClass("aa");//find 是后代
+
+            // $("#div3").closest("#div2").css("background", "red"); //closest只往上找一层  从自身开始
+            //$("#div3").parents("#div2").css("background", "red"); //parent往上找所有层  从父元素开始
+            
+
+        });
+
+    // var oUl2 = document.getElementById("ul2");
+    // oUl2.oncilck = function(e){
+    //     console.log(e);
+    //};
+    </script>
+</body>
+</html>

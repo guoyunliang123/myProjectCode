@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      .myBtn{
+          padding: 5px 10px;
+          background: rgb(92,184,92);
+          color: white;
+          outline: none;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+  </style>
+</head>
+<body>
+  
+<input type="file" id="file" style="display: none" οnchange="upload(this)">
+<button class="myBtn" οnclick="fileBtn()">
+    上传文件
+</button>
+ 
+<img src="" id="img" style="width: 200px">
+<script>
+
+function fileBtn() {
+    document.getElementById('file').click()
+}
+ 
+function upload(file) {
+    let img = document.getElementById('img')
+    let formData = new FormData()
+    let temp = file.files[0]
+    if (temp){
+        formData.append('file',temp)
+        img.src = window.URL.createObjectURL(temp)
+        $.ajax({
+            url:"/test/file2",
+            type:"POST",
+            data: formData,
+            processData: false, // 告诉jQuery不要去处理发送的数据
+            contentType: false, // 告诉jQuery不要去设置Content-Type请求头
+            success: function(result){
+                alert(result);
+            }
+        })
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+<form name="formInner" novalidate>
+    <fieldset>
+      <label class="col-sm-4 control-label">附件</label>
+      <div class="col-sm-4">
+        <input type="file" nv-file-select uploader="uploader"/>
+      </div>
+      <div class="col-md-4">
+        <button type="reset" ng-if="params.showClearOrNot" ng-click="clear()" class="btn btn-xs btn-default">清除</button>
+      </div>
+    </fieldset>
+  </form>
+  <form>
+    <input ng-model="xxx" />
+    <yunzhi-upload-file ng-model="work.apply.attachment"></yunzhi-upload-file>
+  </form>
+
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script src="http://apps.bdimg.com/libs/angular-file-upload/1.3.1/angular-file-upload.min.js"></script>
+
+  <script>
+    // 上传文件
+    self.upload = function(data) {
+      // 上传文件
+      AttachmentService.uploadFile(data._file)
+      .then(function success(response) {
+        // 将上传成功的附件绑定再ngModel中
+        $scope.ngModel = response.data;
+        // 显示上传按钮
+        self.showClear();
+      }, function error() {
+        // 提示用户上传失败
+        sweetAlert.swal({
+          title: "对不起",
+          text: "上传的附件不能大于1M，请确认附件是否大于1M"
+        });
+      });
+    };
+    // 清空选中文件
+    self.clear = function() {
+      self.deleteFile(scope.ngModel.id);
+    };
+
+    // 删除附件
+    self.deleteFile = function(id) {
+      AttachmentService.deleteFile(id, function success() {
+        // 将附件赋为空对象
+        scope.ngModel = undefined;
+        // 隐藏清空按钮
+        self.hideClear();
+      });
+    };
+
+    scope.clear = self.clear;
+  </script>
+</body>
+</html>

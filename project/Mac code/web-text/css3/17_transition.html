@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+
+            transition: all 2s linear 1s;  /* 只要发现当前属性值发生变化就会触发此事件 */
+            /* 四个参数：①让谁做动画  ②时间  ③动画效果  ④延时时间 */
+        }
+        #div1:hover{
+            width: 500px;
+            background: #00ff00;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

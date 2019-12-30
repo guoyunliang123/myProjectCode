@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- slot 表示文字位置 -->
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>按钮组件演示</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-button color="dark"> 通过 color 属性修改按钮颜色 </ion-button>
+
+  <ion-button color="primary"> 对比 </ion-button>
+
+  <ion-button color="primary" expand="block"> expand 设置按钮宽度 </ion-button>
+
+  <ion-button color="primary" expand="full"> expand 设置按钮宽度 </ion-button>
+
+  <ion-button color="primary" expand="block" fill="clear"> fill 设置背景填充 </ion-button>
+  <ion-button>
+    <ion-icon slot="icon-only" name="add"></ion-icon>
+  </ion-button>
+
+  <ion-button fill="clear">
+    <ion-icon slot="icon-only" name="add"></ion-icon>
+  </ion-button>
+
+  <ion-button color="primary" expand="block" fill="outline"> fill 设置背景填充 </ion-button>
+
+  <ion-button size="large"> size 设置按钮的大小 </ion-button>
+
+  <ion-button size="small"> size 设置按钮的大小 </ion-button>
+
+
+  <ion-button color="primary" mode="ios"> ios 平台按钮 </ion-button>
+  <ion-button color="primary" mode="md"> Android 平台按钮 </ion-button>
+
+  <ion-button color="primary" href="">
+    <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+    表示图片在左侧，文字在右侧的按钮
+  </ion-button>
+
+  <ion-button color="primary" href="">
+    表示图片在右侧，文字在左侧的按钮
+    <ion-icon name="add-circle-outline" slot="end"></ion-icon>
+  </ion-button>
+
+  <ion-button color="primary" href="">
+    增加
+    <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+  </ion-button>
+
+</ion-content>

@@ -1,0 +1,92 @@
+/* brands的开始 */
+#brands{
+    height: 316px;
+}
+.brand img{
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+.brand h2{
+    margin-left: 10px;
+    margin-top: 50px;
+}
+/* brands结束 */
+
+/* cosmetics的开始 */
+#cosmetics h2{
+    margin-left: 10px;
+}
+#cosmetics{
+    height: 1000px;   
+}
+#cosmetics .sample{
+    border: 1px solid #E7E7E7;
+    width: 340px; 
+    height: 430px;
+    float: left;
+    margin-top: 50px;
+    margin-left: 30px;
+    
+}
+#cosmetics .sample img{
+    width: 250px;
+    height: 250px;
+    border: 1px solid #E7E7E7;
+}
+#cosmetics .product{
+    float: right;
+    width: 52px;
+    height: 30px;
+    background: #fa558f;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}
+.sample p{
+    font-size: 20px;
+    margin-left: 20px;
+}
+.sample h2{
+    margin-left: 20px;
+    margin-top: 15px;
+}
+.sample .box{
+    margin-left: 20px;
+    width: 158px;
+    height: 20px;
+    text-indent: 10px;
+    margin-top: 10px;
+}
+.sample .add{
+    border-radius: 10px;
+    background: #FF9000;
+    color: #fff;
+    width: 140px;
+    height: 42px;
+    margin-left: 20px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 15px;
+}
+/* cosmetics的结束 */
+/* footer的开始 */
+#footer{
+    width: 1349px;
+    height: 82px;
+    background: #fa558f;
+    overflow: hidden;
+    margin-top: 50px;
+}
+#me a{
+    color: #fff;
+    display: block;
+    margin-top: 25px;
+    font-size: 25px;
+}
+#girl p{
+    color: #fff;
+    float: right;
+    margin-bottom: 40px;
+}
+/* footer的结束 */

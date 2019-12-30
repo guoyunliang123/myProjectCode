@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        /* #span1{
+            background: #ff0000;
+            padding: 100px; 
+            会把上面的div挡住一部分  如果上面没有元素，则padding的上半部分会超出去
+        } */
+        /* #div1{
+            width: 200px;
+            height: 200px;
+            background: #00ff00;
+        } */
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+            text-align: center;
+            line-height: 200px;
+        }
+        #span2{
+            background: #0f0;
+        }
+        #span3{
+            background: #0000ff;
+        }
+        /* 块级元素在块级元素中居中  不已知宽高 */
+        #div3{
+            background: #0000ff;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+        #div4{
+            background: #ffff00;
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="div1">div1</div>
+    <span id="span1">span1</span> -->
+
+    <div id="div2">
+        <span id="span2">span2</span><span id="span3">span3</span>
+    </div>
+
+    <div id="div3">
+        <div id="div4">div4</div>
+    </div>
+</body>
+</html>

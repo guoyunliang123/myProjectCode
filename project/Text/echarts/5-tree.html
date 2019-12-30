@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="echarts.min.js"></script>
+</head>
+<body>
+  
+  <div id="chart" style="width:100%;height:500px;"></div>
+
+  <script>
+//     empId;//员工编号
+// yearMonth;//年份
+// data1;//基本薪酬
+// data2;//奖金
+// data3;//津贴补贴
+// data4;//实发工资
+// data5;//养老保险个人
+// data6;//失业保险个人
+// data7;//医疗保险个人
+// data8;//住房公积金个人
+// data9;//企业年金个人
+// data10;//个人所得税
+// data11;//养老保险单位
+// data12;//失业保险单位
+// data13;//医疗保险单位
+// data14;//工商保险单位
+// data15;//生育保险单位
+// data16;//住房公积金单位
+// data17;//企业年金单位
+// 	//五险二金及个税=养老保险个人+失业保险个人+医疗保险个人+住房公积金个人+企业年金个人+个人所得税
+// tdata1;
+// 	//五险二金(单位缴纳)=养老保险单位+失业保险单位+医疗保险单位+工商保险单位+生育保险单位+住房公积金单位+企业年金单位
+// tdata2;
+// 	//应发工资=实发工资+五险二金及个税
+// tdata3;
+// 	//薪酬总额（人工成本）=应发工资+五险二金(单位缴纳)
+// tdata4;
+// //
+// tdata5;
+    var myChart = echarts.init(document.getElementById('chart'));
+  
+    
+    let data = [
+      {
+        name: '人工成本 \n 2016:123 \n 2017:456 \n2018:789',
+        value: 123,
+        children: [
+          {
+            name: '应发工资',
+            value: 4321,
+            children: [
+              {
+                name: '实发工资',
+                value: 3211,
+              },
+              {
+                name: '五险二金及个税',
+                value: 1234,
+                children: [
+                  {
+                    name: '养老保险个人',
+                    value: 435
+                  },
+                  {
+                    name: '失业保险个人',
+                    value: 435
+                  },
+                  {
+                    name: '医疗保险个人',
+                    value: 435
+                  },
+                  {
+                    name: '住房公积金个人',
+                    value: 435
+                  },
+                  {
+                    name: '企业年金个人',
+                    value: 435
+                  },
+                  {
+                    name: '个人所得税',
+                    value: 435
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name: '五险二金单位缴纳',
+            value: 9870,
+            children: [
+              {
+                name: '养老保险单位',
+                value: 824
+              },
+              {
+                name: '失业保险单位',
+                value: 824
+              },
+              {
+                name: '医疗保险单位',
+                value: 824
+              },
+              {
+                name: '工伤保险单位',
+                value: 824
+              },
+              {
+                name: '生育保险单位',
+                value: 824
+              },
+              {
+                name: '住房公积金单位',
+                value: 824
+              },
+              {
+                name: '企业年金单位',
+                value: 824
+              },
+            ]
+          }
+        ]
+      }
+    ];
+
+    myChart.setOption({
+        tooltip: {
+          trigger: 'item',
+          triggerOn: 'mousemove'
+        },
+        series: [
+          {
+            type: 'tree',
+            data: data,
+            top: '5%',
+            left: '10%',
+            bottom: '1%',
+            right: '20%',
+            symbolSize: 7,
+            label: {
+              normal: {
+                position: 'left',
+                verticalAlign: 'middle',
+                align: 'right',
+                fontSize: 9
+              }
+            },
+            leaves: {
+              label: {
+                normal: {
+                  position: 'right',
+                  verticalAlign: 'middle',
+                  align: 'left'
+                }
+              }
+            },
+            expandAndCollapse: true,
+            animationDuration: 550,
+            animationDurationUpdate: 750
+          },
+        ]
+      });
+
+    // myChart.setOption(option = {
+    //   title: {
+    //     // text: 'ECharts 配置项查询分布',
+    //     // subtext: '2016/04',
+    //     // left: 'leafDepth'
+    //   },
+    //   tooltip: {},
+    //   series: [{
+    //     name: '1000号报障关系图谱',
+    //     type: 'treemap',
+    //     visibleMin: 1,
+    //     breadcrumb: {
+    //       show: true,
+    //       left: 'center',
+    //       top: '20px'
+    //     },
+    //     data: data,
+    //     leafDepth: 2,
+    //     label: {
+    //       show: true,
+    //       formatter: function (obj) {
+    //         return `${obj.data.name}\n(${obj.data.value})`
+    //       },
+    //       color: 'black'
+    //       // backgroundColor:'green'
+    //     },
+    //     upperLabel: {
+    //       normal: {
+    //         show: true,
+    //         height: 30,
+    //         width: '100%',
+    //         backgroundColor: 'green',
+    //         position: 'inside'
+    //         // color:'red',
+
+    //       },
+    //       show: true,
+    //       height: 30,
+    //       width: '100%',
+    //       backgroundColor: 'green',
+    //       position: 'inside'
+    //     },
+    //     levels: [
+    //       {
+    //         itemStyle: {
+    //           normal: {
+    //             borderColor: '#777',
+    //             borderWidth: 0,
+    //             gapWidth: 1
+    //           }
+    //         },
+    //         upperLabel: {
+    //           normal: {
+    //             show: true
+    //           }
+    //         }
+    //       },
+    //       {
+    //         itemStyle: {
+    //           normal: {
+    //             borderColor: '#555',
+    //             borderWidth: 5,
+    //             gapWidth: 1
+    //           },
+    //           emphasis: {
+    //             borderColor: '#ddd'
+    //           }
+    //         }
+    //       },
+    //       {
+    //         // colorSaturation: [0.35, 0.5],
+    //         itemStyle: {
+    //           normal: {
+    //             borderWidth: 5,
+    //             gapWidth: 1,
+    //             borderColorSaturation: 0.6
+    //           }
+    //         }
+    //       }
+    //     ]
+    //   }]
+    // }
+    // );
+
+  </script>
+</body>
+</html>

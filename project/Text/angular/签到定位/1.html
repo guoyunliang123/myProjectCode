@@ -1,0 +1,70 @@
+<html lang="zh-cn">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>我要签到</title>
+    <style type="text/css">
+        *
+        {
+            height: 80%;
+        }
+    </style>    
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=需要向百度地图申请AK"></script>
+    <script src="Scripts/convertor.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function enter() {
+            if (navigator.geolocation) {  //调用导航器geolocation函数
+                navigator.geolocation.getCurrentPosition(translatePoint); //进入总显示函数loand，函数名由自己定
+            } else {
+                alert("您的浏览器不支持地理定位"); //不支持
+            }
+ 
+        };
+        function translatePoint(position) {
+            var currentLat = position.coords.latitude;
+            var currentLon = position.coords.longitude;
+            var gpsPoint = new BMap.Point(currentLon, currentLat);
+            BMap.Convertor.translate(gpsPoint, 0, initMap); //转换坐标
+        }
+        function initMap(point) {
+            //初始化地图
+            map = new BMap.Map("map");
+            map.addControl(new BMap.NavigationControl());
+            map.addControl(new BMap.ScaleControl());
+            map.addControl(new BMap.OverviewMapControl());
+            map.centerAndZoom(point, 16);
+            map.addOverlay(new BMap.Marker(point));
+            var gc = new BMap.Geocoder();  //初始化，Geocoder类
+            gc.getLocation(point, function (rs) {   //getLocation函数用来解析地址信息，分别返回省市区街等
+                var province = 0; //获取省份
+                var city = 0; //获取城市
+                var district = 0; //区
+                var street = 0; //街
+                var streetNumber = 0; //街
+                var business = 0; //建筑
+                var addComp = rs.addressComponents;
+                province = addComp.province; //获取省份
+                city = addComp.city; //获取城市
+                district = addComp.district; //区
+                street = addComp.street; //街
+                streetNumber = addComp.streetNumber; //街
+                business = addComp.business; //商业建筑
+                //alert(business);
+                if (business = "undefine") {
+                    document.getElementById("LabelAddress").innerText = province + "," + city + "," + district + "," + street + "," + streetNumber;
+                } else {
+                    document.getElementById("LabelAddress").innerText = province + "," + city + "," + district + "," + street + "," + streetNumber + "," + business;
+                }
+                //alert( province + "," + city + "," + district + "," + street + "," + streetNumber);
+            }
+            )
+        }
+ 
+    </script>
+</head>
+<body οnlοad="enter()">
+    <div id="map" style="border:1px solid gray">
+    </div>
+    <asp:Label ID="LabelAddress" runat="server" Text="签到地址获取中，请您稍候..."></asp:Label>
+</body>
+</html>

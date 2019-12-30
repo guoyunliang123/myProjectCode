@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+        }
+
+        #div1 {
+            background: #ff0000;
+            /* opacity: 0;
+            /* filter: alpha(opacity(0)); */
+            /*透明度为0隐藏但还可以显示，单击事件也在 */
+            /*display: none;*/
+            /*位置没有，单击事件不在 */
+            visibility: hidden;
+            /*位置还在，单击事件不在 */
+        }
+
+        #div2 {
+            background: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+
+
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        div1.onclick = function () {
+            alert(123);
+        };
+
+
+        //事件源的获取方法：windou.enent.src element ||  e.target
+    </script>
+</body>
+
+</html>

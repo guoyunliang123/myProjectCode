@@ -1,0 +1,38 @@
+body{
+    padding-top: 50px;
+}
+.imgs{
+    width: 100%;
+}
+/* 设置导航栏中搜索框的样式 */
+.navbar-inverse input[type="text"]{
+    background: #313131;
+    border: none;
+    color: #999;
+}
+
+.navbar-inverse .navbar-form{
+    position: relative;
+}
+
+.navbar-inverse button[type="submit"]{
+    position: absolute;
+    top: 25%;
+    right: 20px;
+    background: none;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .navbar-inverse button[type="submit"] {
+        top: 15%;
+    }
+}
+
+.navbar-inverse .glyphicon{
+    color: #999;
+}
+/* 改变登录注册的样式 */
+.profile{
+    margin-right: 25px;
+}

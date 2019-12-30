@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="2_dom1.html">history</a>
+
+    <script>
+        function toTaoBao() {
+            if (navigator.userAgent.indexOf("iphone") != -1) {
+                location.href = "http://m.taobao.com"; //重定向
+            } else {
+                location.href = "http://www.taobao.com";
+            }
+        }
+        // toTaoBao();
+
+        //indexOf   检索字符串
+
+        //内置对象的方法
+        //navigator.userAgent，可以判断当前的大致设备
+        //location.href   重定向
+
+        var str = "Hello world!"
+        console.log(str.indexOf("Hello") + "<br />")
+        console.log(str.indexOf("World") + "<br />")
+        console.log(str.indexOf("world"))
+    </script>
+</body>
+
+</html>

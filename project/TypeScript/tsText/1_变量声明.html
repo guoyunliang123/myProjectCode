@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <script>
+    function f(shouldInitialize) {
+      if (shouldInitialize) {
+          var x = 10;
+      }
+
+      return x;
+    }
+    
+    console.log(f(true));
+    console.log(f(false));
+
+    // for (var i = 0; i < 10; i++) {
+    //   setTimeout(function() { console.log(i); }, 100 * i);
+    // }
+
+    // for (var i = 0; i < 10; i++) {
+    // // capture the current state of 'i'
+    // // by invoking a function with its current value
+    //   (function(i) {
+    //     setTimeout(function() { console.log(i); }, 100 * i);
+    //   })(i);
+    // }
+
+    let o = {
+      a: "foo",
+      b: 12,
+      c: "bar"
+    };
+
+    let { a, ...passthrough } = o;
+    let total = passthrough.b + passthrough.c.length;
+
+    console.log(total);
+
+  </script>
+</body>
+</html>

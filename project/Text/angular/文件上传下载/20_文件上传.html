@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+    <form name="myForm1" ng-controller="singlePicUploadController">
+            
+        <fieldset>
+            
+          <legend>单文件上传</legend>
+                
+          <!-- ![](data.file || data.defaultImage) -->
+            
+          <div class="button" ngf-select="" ngf-pattern="'image/*'" ngf-multiple="false" ng-model="data.file" style="width:80px;height: 50px;background: red;"></div>
+
+          <button ng-click="sigleUpload()">upload</button>
+         
+        </fieldset>
+
+     </form>
+     
+     
+     <form name="myForm2" ng-controller="dultiplePicUploadController">
+    
+        <fieldset>
+            
+          <legend>多文件上传</legend>
+                
+          <!-- ![](file || data.defaultImage) -->
+            
+          <div class="button" ngf-select ngf-pattern="'image/*'" ng-model="files" ngf-multiple="true">选择多张图片</div>
+
+          <button ng-click="multiUpload()">upload</button>
+         
+        </fieldset>
+
+     </form>
+
+      <form name="myForm3" ng-controller="dropUploadController">
+    
+        <fieldset>
+            
+          <legend>拖拽上传</legend>
+                
+          <!-- ![](file || data.defaultImage) -->
+            
+          <div ngf-drop ngf-pattern="'image/*'" ng-model="data.file" class="cropArea">
+            
+              <img-crop image="data.file|| data.defaultImage" resule-image="data.file"></img-crop>
+
+              <div style="width: 150px;height: 150px;border: 1px solid orange;">
+                   <!-- ![](data.file|| data.defaultImage) -->
+              </div>
+              
+          </div>
+
+          <button ng-click="dropUpload()">upload</button>
+         
+        </fieldset>
+
+     </form>
+  
+    <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/12.2.13/ng-file-upload-shim.min.js"></script>
+  
+    <script>
+            
+        var app = angular.module('app', ['ngFileUpload']);
+        
+        //单文件上传
+        app.controller('singlePicUploadController', function ($scope, Upload) {
+   
+            //提交
+            $scope.sigleUpload = function () {
+                $scope.upload($scope.data.file);
+            };
+            
+            $scope.upload = function (file) {
+                
+                Upload.upload({
+                    //服务端接收
+                    url: 'fileupload.php',
+                    //上传的同时带的参数
+                    file: file
+                }).progress(function (evt) {
+                    //进度条
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progess:' + progressPercentage + '%');
+                }).success(function (data, status, headers, config) {
+                    //上传成功
+                    console.log('file ' + config.file.name + 'uploaded. Response: ');
+                    $scope.uploadImg = data;
+                }).error(function (data, status, headers, config) {
+                    //上传失败
+                    console.log('error status: ' + status);
+                });
+            };
+        });
+        
+        //多文件上传
+        app.controller('dultiplePicUploadController', function ($scope, Upload) {
+   
+            //提交
+            $scope.multiUpload = function () {
+                
+                
+                for (var i = 0; i < $scope.files.length; i++) {
+                    
+                    $scope.upload($scope.files[i]);
+                    
+                }
+                
+            };
+            
+            $scope.upload = function (file) {
+                
+                Upload.upload({
+                    //服务端接收
+                    url: 'fileupload.php',
+                    //上传的同时带的参数
+                    file: file
+                }).progress(function (evt) {
+                    //进度条
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progess:' + progressPercentage + '%');
+                }).success(function (data, status, headers, config) {
+                    //上传成功
+                    console.log('file ' + config.file.name + 'uploaded. Response: ');
+                    $scope.uploadImg = data;
+                }).error(function (data, status, headers, config) {
+                    //上传失败
+                    console.log('error status: ' + status);
+                });
+            };
+        });
+        
+        
+        //拖拽上传
+        app.controller('dropUploadController', function ($scope, Upload) {
+   
+            //提交
+            $scope.dropUpload = function () {
+                $scope.upload($scope.data.file);
+            };
+            
+            $scope.upload = function (file) {
+                
+                Upload.upload({
+                    //服务端接收
+                    url: 'fileupload.php',
+                    //上传的同时带的参数
+                    file: file
+                }).progress(function (evt) {
+                    //进度条
+                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                    console.log('progess:' + progressPercentage + '%');
+                }).success(function (data, status, headers, config) {
+                    //上传成功
+                    console.log('file ' + config.file.name + 'uploaded. Response: ');
+                    $scope.uploadImg = data;
+                }).error(function (data, status, headers, config) {
+                    //上传失败
+                    console.log('error status: ' + status);
+                });
+            };
+        });
+
+        
+    </script>
+</body>
+</html>

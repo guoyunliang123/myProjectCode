@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+
+            animation: xx 5s ease forwards;  /* 四个参数：①关键帧名字  ②动画执行时间 ③动画效果  ④动画结束停在最后一帧 */
+        }
+
+        @keyframes xx {  /* 定义关键帧  名字随意起 */
+            0% {
+                width: 200px;
+            }
+            50% {
+                width: 400px;
+            }
+            100% {
+                width: 600px;
+            }
+        }
+        @keyframes yy {
+            from{
+
+            }
+            to{
+
+            }
+        } /* 只有分为两段的时候才能这么写 */
+        /* forwards让动画结束的时候停止在最后一帧 */
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+</body>
+</html>

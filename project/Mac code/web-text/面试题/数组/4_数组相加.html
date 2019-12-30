@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 给定整数数组和单个整数，返回整数数组中2个值相加为单个整数的值
+    function add(arr, sum) {
+      const seen = {};
+      for (let x of arr) {
+        if (seen[sum - x]) {
+          return [sum - x, x]
+        } else {
+          seen[x] = true;
+        }
+      }
+    }
+    console.log(add([11, 3, 7, 5], 10));
+    console.log(add([4, 3, 2, 3, 4], 6));
+    console.log(add([0, 0, -2, 3], 2));
+    console.log(add([10, 5, 2, 3, 7, 5], 10));
+  </script>
+</body>
+
+</html>

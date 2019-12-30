@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="new" onclick="open('new.html', '_black')">
+  <input type="button" value="new" onclick="window.location = 'new.html'">
+  <input type="button" value="new" onclick="location.assign('new.html')">
+  <form target="_black" action="new.html">
+    <input type="submit" value="new">
+  </form>
+
+  <script>
+    const str = "中文-zn-CH,AdssSDsDKF";
+    const str1 = "abcdefg";
+
+
+    // console.log(str.toLowerCase());
+
+    // var color = 'red,blue,yellow,black';
+    // var color1 = color.split('.');
+    // console.log(color1);
+    console.log(str1.slice(2, 3));
+  </script>
+</body>
+
+</html>

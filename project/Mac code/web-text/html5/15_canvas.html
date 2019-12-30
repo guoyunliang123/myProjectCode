@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background: #000000;
+            margin: 0;
+        }
+        #cvs{
+            background: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="cvs" width="500px" height="400px"></canvas>
+
+    <script>
+        window.onload = function(){
+            var oCvs = document.getElementById("cvs");
+            var ctx = oCvs.getContext("2d");
+            /*
+            画直线
+            ctx.beginPath();
+            ctx.moveTo(100, 100); //从哪开始
+            ctx.lineTo(300, 300);//到那结束
+            //ctx.lineTo(250, 100);//到那结束
+            ctx.strokeStyle = "#f00";  //设置颜色
+            ctx.lineWidth = 15; //直线宽度
+            ctx.lineCap = "round"; //直线端点样式
+            ctx.stroke();  //描边  默认为黑色
+
+            ctx.beginPath();
+            ctx.moveTo(30, 230); //从哪开始
+            ctx.lineTo(270, 370);//到那结束
+            //ctx.lineTo(250, 100);//到那结束
+            ctx.strokeStyle = "#000";  //设置颜色
+            ctx.lineWidth = 15; //直线宽度
+            ctx.lineCap = "round"; //直线端点样式
+            ctx.stroke();  //描边  默认为黑色  
+            */
+
+            //画曲线
+            var x = oCvs.width / 2;
+            var y = oCvs.height / 2;
+            var radius = 75;
+            // var startAngle = 1.1 * Math.PI;
+            // var endAngle = 1.9 * Math.PI;
+            var startAngle = 0;
+            var endAngle = 4;
+            var counterClockwise = false;
+            ctx.beginPath();
+            ctx.arc(x, y, radius, startAngle, endAngle,
+            counterClockwise);
+            ctx.lineWidth = 15;
+            // 设置线的颜色
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+        };
+
+
+    </script>
+</body>
+</html>

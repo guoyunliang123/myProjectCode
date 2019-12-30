@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- class="active"作用是给激活的菜单项增加一些样式 -->
+    <!-- class="navbar-fixed-top" 把导航栏固定在页面顶部 -->
+    <!-- class="navbar-static-top" 把导航栏固定在页面顶部 --> 
+    <!-- class="navbar-static-top/"和 class="navbar-fixed-top"区别：class="navbar-fixed-top"设置的导航栏会跟着页面的滚动而滚动 -->
+    <!-- class="navbar-fixed-bottom" 把导航栏固定在页面底部 -->    
+    <!-- 把container放再nav标签里面  让菜单居中显示 -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <a href="" class="navbar-brand"><strong>nihao</strong>.net</a>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="">课程</a></li>
+                <li><a href="">博客</a></li>
+                <li><a href="">手册</a></li>
+            </ul>
+            <form action="" class="navbar-form navbar-left">
+                <input type="text" placeholder="搜索" class="form-control">
+                <button type="submit">
+                    <!-- 设置按钮中的小图标 -->
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </form>
+            <a href="" class="btn btn-primary btn-sm navbar-btn navbar-right">订阅课程</a>
+            <div class="profile navbar-right">
+                <ul class="nav navbar-nav">
+                    <li><a href="">登录</a></li>
+                    <li><a href="">注册</a></li>
+                </ul>
+                <p class="navbar-text">您好，<a href="#" class="navbar-link">点击</a></p>
+            </div>
+        </div>
+    </nav>
+
+    
+    <!-- 新加入的文字会被导航栏挡住一部分  解决方法：给body加一个padding-top：70px；导航栏高度默认为50px -->
+    <div class="container" style="height: 1500px">
+        <p class="alert alert-info">Lorem ipsum dolor sit, amet consectetur adipisicing elit. In ad nam consequuntur eum nobis culpa eveniet voluptates repellendus sed optio, aperiam nisi corporis magni ab quam voluptatibus doloremque minus saepe?</p>
+    </div>
+
+
+    <script src="jquery-1.11.2.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

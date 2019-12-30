@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script> 
+ 
+  <div ng-app="fileLoad"> 
+  
+      <input type="file" ng-model="file.data" file-select> 
+  
+      <img ng-show="file.data.type && file.data.type.indexOf('image') != -1" data-ng-src="{{file.data.data}}" /> 
+  
+      <p ng-show="file.data.type && file.data.type.indexOf('image') == -1" ng-bind="file.data.data"></p> 
+  
+  </div>
+
+  <script>
+    angular.module('fileLoad', []).directive('fileSelect', ['$window', function($window) { 
+ 
+      return { 
+
+      restrict: 'A', 
+
+      require: 'ngModel', 
+
+      link: function($scope, el, attr, ctrl) { 
+
+        var fileReader = new $window.FileReader(); 
+
+        var fileType; 
+
+        fileReader.onload = function() { 
+
+        var fileData = {}; 
+
+        fileData.type = fileType; 
+
+        fileData.data = fileReader.result; 
+
+
+
+        ctrl.$setViewValue(fileData); 
+
+        $scope.$apply(); 
+
+        }; 
+
+
+
+        el.bind('change', function(e) { 
+
+        var fileName = e.target.files[0]; 
+
+        fileType = (fileName && fileName.type) || ''; 
+
+        if (fileType.indexOf('image') != -1) { 
+
+        fileReader.readAsDataURL(fileName); 
+
+        } else if(fileName) { 
+
+        fileReader.readAsText(fileName); 
+
+        } else { 
+
+        ctrl.$setViewValue({}); 
+
+        $scope.$apply(); 
+
+        } 
+
+        }); 
+
+      } 
+
+      }; 
+
+      }]);
+  </script>
+</body>
+</html>

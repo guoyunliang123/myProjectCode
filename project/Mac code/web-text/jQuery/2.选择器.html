@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="btn">点击</button>
+    <div class="aa">001</div>
+    <div class="aa">002</div>
+    <div class="aa">003</div>
+    <div class="aa">004</div>
+    <form action="">
+        用户名：<input type="text" name="username">
+    </form>
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        document.getElementById("id");
+        document.getElementsByTagName("div");
+
+        document.getElementsByClassName("aa"); //兼容性问题
+        document.getElementsByName("username"); //兼容性问题
+
+        var oBtn = document.querySelector("#btn"); //只能查询到一个对象  如果有多个默认查询到第一个
+        console.log(oBtn); //兼容性问题
+
+        var aAa = document.querySelectorAll(".aa"); //兼容性问题
+        console.log(aAa);
+
+        document.createComment("div"); //创建一个元素
+        // document.removeChild();//删除一个元素
+        // document.cloneNode(); //拷贝一个一样的元素
+        // document.appendChild(); //追加一个元素
+        //document.insertBefore(new, old);//
+    </script>
+</body>
+
+</html>

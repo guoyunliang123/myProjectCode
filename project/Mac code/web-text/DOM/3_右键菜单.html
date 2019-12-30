@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>右键菜单</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        #menu {
+            width: 100px;
+            border: 1px solid #000;
+            display: none;
+            position: absolute;
+        }
+
+        #menu li {
+            height: 30px;
+            width: 100px;
+            border-bottom: 1px solid #ccc;
+            line-height: 30px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #menu li:hover {
+            background: #cccccc;
+        }
+    </style>
+</head>
+
+<body>
+    <ul id="menu">
+        <li>打开</li>
+        <li>下载</li>
+        <li>复制</li>
+        <li>粘贴</li>
+        <li>删除</li>
+    </ul>
+
+
+
+    <script>
+        var oMenu = document.getElementById("menu");
+        var aLi = oMenu.getElementsByTagName("li");
+        document.oncontextmenu = function (e) { //给document绑定一个右键事件
+            e = e || window.event; //解决兼容性问题
+            oMenu.style.display = "block"; //改变样式：对象。style。属性
+            oMenu.style.top = e.clientY + "px";
+            console.log(e.clientY);
+            oMenu.style.left = e.clientX + "px";
+            console.log(e.clientX);
+            return false; //阻止浏览器的默认行为
+        };
+        document.onclick = function () {
+            oMenu.style.display = "none";
+        }; //点击的时候消失
+        for (var i = 0; i < aLi.length; i++) { 
+            aLi[i].onclick = function () {
+                //i已经越界
+                alert(this.innerHTML); //this  当前对象的引用
+            };
+        } //点击哪个li弹出哪个里的内容
+    </script>
+</body>
+
+</html>

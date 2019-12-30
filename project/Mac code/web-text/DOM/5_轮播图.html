@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            border: 0;
+        }
+
+        #container {
+            width: 600px;
+            height: 360px;
+            position: relative;
+            margin: 100px auto;
+        }
+
+        #imgs img {
+            width: 600px;
+            height: 360px;
+            display: none;
+        }
+
+        #imgs .selected {
+            display: block;
+        }
+
+        #nav {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+        }
+
+        #nav li,
+        #arrows div {
+            width: 20px;
+            height: 20px;
+            background: #000000;
+            color: #fff;
+            cursor: pointer;
+            float: left;
+            text-align: center;
+            margin-right: 5px;
+            line-height: 20px;
+        }
+
+        #arrows {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+        }
+
+        #nav .selected {
+            background: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <div id="imgs">
+            <img src="img/a1.jpg" alt="" class="selected" id="pic">
+            <img src="img/a2.jpg" alt="">
+            <img src="img/a3.jpg" alt="">
+            <img src="img/a4.jpg" alt="">
+            <img src="img/a5.jpg" alt="">
+            <img src="img/a6.jpg" alt="">
+        </div>
+        <ul id="nav">
+            <li class="selected">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+        <div id="arrows">
+            <div id="left">&lt;</div>
+            <div id="right">&gt;</div>
+        </div>
+    </div>
+
+
+
+    <script>
+        var oPic = document.getElementById("pic");
+        oPic.onload = function () {
+            console.log(oPic.offsetWidth); //获取图片的宽度
+        };
+
+        var oNav = document.getElementById("nav");
+        var aLi = oNav.getElementsByTagName("li");
+        var oImg = document.getElementById("imgs");
+        var aImg = oImg.getElementsByTagName("img");
+        var oLeft = document.getElementById("left");
+        var oRight = document.getElementById("right");
+        var oContainer = document.getElementById("container");
+        var nowIndex = 0; //保存住当前选项的下标 
+        var timer;
+        for (var i = 0; i < aLi.length; i++) {
+            aLi[i].index = i;
+            aLi[i].onmouseover = function () {
+                nowIndex = this.index;
+                changeImg();
+            };
+        }
+        oLeft.onclick = oRight.onclick = function () {
+            if (this == oLeft) {
+                nowIndex--;
+                if (nowIndex == -1) {
+                    nowIndex = aLi.length - 1;
+                }
+            } else {
+                nowIndex++;
+                //判断是否越界
+                if (nowIndex == aLi.length) {
+                    nowIndex = 0;
+                }
+            }
+            changeImg();
+        };
+        oLeft.onselectstart = oRight.onselectstart = function () {
+            return false;
+        }; //点击大于小于号的时候没有浏览器的默认行为
+        oContainer.onmouseover = function () {
+            clearInterval(timer);
+        };
+        oContainer.onmouseout = function () {
+            play();
+        };
+        play();
+
+        function play() {
+            timer = setInterval(function () {
+                oRight.onclick();
+            }, 1000);
+        }
+
+        function changeImg() {
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].className = "";
+                aImg[i].className = "";
+            }
+            aLi[nowIndex].className = "selected";
+            aImg[nowIndex].className = "selected";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="add">增加</button>
+    <ul id="nav">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+        <li>004</li>
+        <li>005</li>
+    </ul>
+
+    <script>
+        //点击添加按钮，就添加一个li
+        var oNav = document.getElementById("nav");
+        var oAdd = document.getElementById("add");
+        // var aLi = oNav.getElementsByTagName("li");
+        // for(var i=0; i<aLi.length; i++){
+        //     aLi[i].onclick = function(){
+        //         console.log(this.innerHTML);
+        //     };
+        // }
+
+        oNav.onclick = function(e){
+            var target = e.target || window.event.srcElement;
+            console.log(target.innerHTML);
+        };
+        //第一种方法
+        oAdd.onclick = function(){
+            var oLi= document.createElement("li");//创建dom对象
+            oLi.innerHTML = Math.random();//内容为随机数  范围：[0-1)
+            oNav.appendChild(oLi);//追加孩子
+        };
+        //第二种方法
+        // oAdd.onclick = function(){
+        //     var sLi = "<li>" +  Math.random() + "</li>";
+        //     oNav.innerHTML += sLi;
+        // };
+    </script>
+</body>
+</html>

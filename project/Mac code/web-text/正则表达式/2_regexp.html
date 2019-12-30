@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            // var re = new RegExp();
+            // var re = //
+
+            var reg = /test/;
+            var str = "testString";
+            var result = reg.exec(str);
+            //console.log(result);
+
+            var str = "蓝  色 梦 想"
+            var reg = /\s+/g;
+            str = str.replace(reg,",")
+            console.log(str);
+
+        </script>
+    </body>
+</html>

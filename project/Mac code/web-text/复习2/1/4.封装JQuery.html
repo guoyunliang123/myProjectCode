@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">click</button>
+    <ul id="ul1">
+        <li>item 1</li>
+        <li class="aa">item 2</li>
+        <li class="aa">item 3</li>
+    </ul>
+    <script>
+        function getByClass(className, context) {
+            context = context || document;
+            var result = [];
+            var arr = context.getElementsByTagName("*");  //搜索所有的标签
+            var re = new RegExp("\\b" + className + "\\b");
+            for (var i = 0; i < arr.length; i++) {  //for循环过滤掉不想要的className
+                if (re.test(arr[i].className)) {  //判断每一个元素的className
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+        function addEvent(elem, type, fn) {
+            if (elem.addEventListener) {//标准
+                elem.addEventListener(type, fn, false);
+            } else if (elem.attachEvent) {//IE
+                elem[type + fn] = function () {
+                    fn.call(elem); //改变this的指向
+                };
+                elem.attachEvent("on" + type, elem[type + fn]);
+            } else {
+                elem["on" + type] = fn;
+            }
+        }
+
+        function $(selector, context) {
+            var elements = [];
+            context = context || document;
+            switch (selector.charAt(0)) {
+                case "#": //id
+                    elements = [document.getElementById(selector.substring(1))];
+                    break;
+                case ".": //class   
+                    elements = getByClass(selector.substring(1), context);
+                    break;
+                default: //tag
+                    elements = context.getElementsByTagName(selector);
+                    break;
+            }
+            return {
+                click: function (fn){
+                    for(var i=0; i<elements.length; i++){
+                        addEvent(elements[i], "click", fn);
+                    }
+                    return this;
+                },
+                mouseover: function (fn){
+                    for(var i=0; i<elements.length; i++){
+                        addEvent(elements[i], "mouseover", fn);
+                    }
+                    return this;
+                },
+                mouseout: function (fn){
+                    for(var i=0; i<elements.length; i++){
+                        addEvent(elements[i], "mouseout", fn);
+                    }
+                    return this;
+                },
+            };
+        }
+        
+        
+        $("#btn").click(function(){
+            alert("haha");
+        });
+
+        //链式操作     
+        $(".aa").mouseover(function(){
+            this.style.background = "#f00";
+        }).mouseout(function(){
+            this.style.background = "#fff";
+        });
+    </script>
+</body>
+</html>

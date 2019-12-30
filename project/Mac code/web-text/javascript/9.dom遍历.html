@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div2 {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="div2">
+        <div id="div1">
+            <div id="div3">hehe</div>
+            <h1 id="h11">haha</h1>
+            <p>haha</p>
+        </div>
+    </div>
+
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        var oH1 = document.getElementById("h11");
+        //console.log(oDiv1.childNodes);  //获取元素的孩子节点  包含文本节点
+        //console.log(oDiv1.children);    //  不包含文本节点
+        //console.log(oDiv1.parentNode);    //获取元素的父亲节点   相当于document.body
+        //console.log(oDiv1.offsetParent);  //找到的是离自己最近的已经定位的父元素
+
+        var oSpan = document.createElement("span");
+        oSpan.innerHTML = "xixi";
+        //oDiv1.appendChild(oSpan);   //插入一个元素 在末尾
+        //oDiv1.removeChild(oH1);     //删除一个孩子
+        //oDiv1.insertBefore(oSpan, oH1);  //两个参数  第一个：插入什么元素   第二个：在谁之前   在任意一个位置插入一个新的元素
+        //oDiv1.replaceChild(oSpan, oH1);     //两个参数   第一个：新的节点      第二个：旧的节点   用新的节点替换旧的节点
+
+
+        //封装删除给定的元素
+        /**
+         *删除给定的元素
+         *@param elem
+         */
+        function remove(elem) {
+            enem.parentNode.removeChild(elem);
+        }
+
+        //封装获取当前元素所有元素节点的方法
+        /**
+         *
+         *@param elem  当前元素
+         *@return {Array} 返回当前元素的元素节点
+         */
+        function siblings(elem) {
+            var arr = [];
+            var elements = elem.parentNode.children;
+            for (var i = 0; i < elements.length; i++) {
+                if (elements[i] != elem) {
+                    arr.push(elements[i]);
+                }
+            }
+            return arr;
+        }
+        //console.log(siblings(oH1));
+
+
+        //封装在给定的当前元素前面插入一个新元素     
+        /**
+         *在给定的当然元素的前面插入一个新元素
+         *@param elem
+         */
+        function before(elem, newNode) {
+            elem.parentNode.insertBefore(newNode, elem);
+        }
+        //before(oH1, oSpan);
+
+
+
+        //封装在给定的当前元素后面插入一个新元素
+        /**
+         *在给定的当前元素后面插入一个新元素
+         *@param elem
+         *@param newNode
+         */
+        function after(elem, newNode) {
+            if (elem.nextSibling) {
+                before(elem.nextSibling, newNode);
+            } else {
+                elem.parentNode.appendChild(newNode);
+            }
+        }
+        //after(oH1, oSpan);
+    </script>
+</body>
+
+</html>

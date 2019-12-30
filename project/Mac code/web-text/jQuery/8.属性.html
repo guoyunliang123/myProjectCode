@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="div1">divdiv</div>
+    <input type="text" value="zhangsan" id="username">
+
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        // var oDiv = document.getElementById("div1");
+        // oDiv.aa = "123"; //不会显示在内联样式中 和jq prop方法
+        // console.log(oDiv.aa);
+
+        // oDiv.setAttribute("bb", "234");  //会显示在内联样式中 和jq attr方法
+        // console.log(oDiv.getAttribute("bb"));
+
+        $(function () {
+            var $div1 = $("#div1");
+            $div1.attr("aa", "123"); //设置值  两个参数
+            $div1.removeAttr("aa"); // 移除
+            console.log($div1.attr("aa")); //取值 一个参数
+
+            $div1.prop("bb", "234");
+            console.log($div1.prop("bb"));
+
+            //console.log($("#username").val());
+            //$("#username").val("lisi");
+        });
+    </script>
+</body>
+
+</html>

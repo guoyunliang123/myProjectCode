@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        #app{
+            width: 400px;
+            margin: 100px auto;
+        }
+        #app h1{
+            text-align: center;
+        }
+        #list li{
+            height: 50px;
+            background: #cccccc;
+            line-height: 50px;
+            margin-top: 10px;
+            padding: 0 10px;
+            cursor: pointer;
+        }   
+        .product-name{
+            float: left;
+        } 
+        .product-price{
+            float: right;
+        }
+        #list .red{
+            background: #00ffff;
+        }
+        label input{
+            width: 100px;
+            height: 20px;
+        }
+        .btn{
+            width: 50px;
+            height: 20px;
+            margin-left: 10px;
+            background: #00ffff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .del{
+            color: #fff;
+            float: left;
+            margin-right: 10px;
+        }
+        #list input[type='checkbox']{
+            float: left;
+            margin-top: 20px;
+        }
+        .add{
+            width: 80px;
+            height: 20px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background: #00ffff;
+            cursor: pointer;
+        }
+        #query{
+            margin-top: 10px;
+        }
+        #down{
+            float: right;
+            margin-right: 25px;
+        }
+        #query input{
+            width: 300px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>todolist</h1>
+        <hr>
+        <div>
+            <label>产品：<input type="text" v-model="name" placeholder="请输入产品名称"></label>
+            <label>价格：<input type="text" v-model="price"></label>
+            <button @click="add" class="btn">添加</button>       
+        </div>
+        <div id="query">
+            <input type="text" placeholder="请输入搜索关键字" v-model="keyword">
+            <button class="btn" id="down" @click="search">查询</button>
+        </div>
+        <ul id="list">
+            <li v-for="(product, index) in productList" @click="select(product)" v-bind:class="{red:product.isRed}">
+                <input type="checkbox" @click.stop="" v-model="checked" v-bind:value="index"><!-- 解决点击变色的冒泡事件 -->
+                <span class="del" @click.stop="del(index)">[x]</span>
+                <span class="product-name">{{product.name}}</span>
+                <span class="product-price">{{product.price}}</span>
+            </li>
+        </ul>
+        <div id="total">
+            <button class="add" @click="delAll">删除选中</button>
+            <!-- 总价：{{total}} -->
+            总价：{{sum()}}
+        </div>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        new Vue ({
+            el : '#app',
+            data : {
+                productList: [
+                    {
+                        name: '衣服',
+                        price: '123',
+                        isRed: false
+                    }, {
+                        name: '裤子',
+                        price: '456',
+                        isRed: false
+                    }, {
+                        name: '鞋',
+                        price: '799',
+                        isRed: false
+                    }, {
+                        name: 'iPhone X',
+                        price: '8888',
+                        isRed: false
+                    }, {
+                        name: '电脑',
+                        price: '11888',
+                        isRed: false
+                    },
+                ],
+                total: 0,
+                name : '',
+                price : 0,
+                checked : [],
+                keyword : ''
+            },
+            methods: {
+                select(product){
+                    product.isRed = !product.isRed;
+
+                    // if(product.isRed){
+                    //     this.total += parseInt(product.price);
+                    // }else{
+                    //     this.total -= parseInt(product.price);
+                    // }
+                    // this.sum();       
+                },
+                sum(){
+                    let sum = 0;
+                    this.productList.forEach(function(val, idx){
+                        if(val.isRed){
+                            sum += parseInt(val.price);
+                        }
+                    });
+                    // this.total = sum;
+                    return sum;
+                },
+                add(){
+                    this.productList.push({
+                        name : this.name,
+                        price : this.price,
+                        isRed : false
+                    });
+                    this.name = '';
+                    this.price = 0;
+                },
+                del(index){
+                    this.productList.splice(index, 1);
+                },
+                delAll(){
+                    // this.checked.forEach((val)=>{
+                    //     this.productList.splice(val, 1); //下标改变了
+                    // });
+
+                    //返回符合条件的新的数组
+                    let arr = this.productList.filter((val, idx)=>{
+                        if(!this.checked.includes(idx)){
+                            return val;
+                        }
+                    });
+                    this.productList = arr;
+                    this.checked = []; 
+                },
+                search(){
+                    let arr = this.productList.filter((val, key)=>{
+                        if(val.name.includes(this.keyword)){
+                            return val;
+                        }
+                    });
+                    this.productList = arr;
+                }
+            }
+        });
+    
+    
+    
+    </script>
+</body>
+</html>

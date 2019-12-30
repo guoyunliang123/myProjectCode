@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function splitString(stringToSplit, separator) {
+      var arrayOfStrings = stringToSplit.split(separator);
+
+      console.log('The original string is: "' + stringToSplit + '"');
+      console.log('The separator is: "' + separator + '"');
+      console.log("The array has " + arrayOfStrings.length + " elements: ");
+
+      for (var i=0; i < arrayOfStrings.length; i++)
+        console.log(arrayOfStrings[i] + " / ");
+    }
+
+    var tempestString = "Oh brave new world that has such people in it.";
+    var monthString = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+
+    var space = " ";
+    var comma = ",";
+
+    splitString(tempestString, space);
+    splitString(tempestString);
+    splitString(monthString, comma);
+  </script>
+</body>
+</html>

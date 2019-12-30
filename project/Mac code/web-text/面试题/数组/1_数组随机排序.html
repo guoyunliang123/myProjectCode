@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 实现一个取到数组前5项，并打乱顺序，求和
+    /* const arr = [1, 5, 4, 8, 45, 35, 26, 76, 35, 12];
+    const arr1 = arr.slice(0, 5);
+    const arr2 = arr1.sort(function () {
+      return .5 - Math.random();
+    })
+
+    function sum(arr2) {
+      return eval(arr2.join('+'))
+    }
+    console.log(sum(arr2)); */
+
+
+    // 实现数组的随机排序
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    /* function sortArr(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        const ran = parseInt(Math.random() * arr.length);
+        const temp = arr[ran];
+        arr[ran] = arr[i];
+        arr[i] = temp;
+      }
+      return arr;
+    }
+    console.log(sortArr(arr)); */
+
+    /* function sortArr2(arr) {
+      const newarr = [];
+      while (arr.length) {
+        const ran = parseInt(Math.random() * arr.length);
+        newarr.push(arr[ran]);
+        arr.splice(ran, 1);
+      }
+      return newarr;
+    }
+    console.log(sortArr2(arr)); */
+
+    /* function sortArr3(arr) {
+      return arr.sort(() => {
+        Math.random() - 0.5
+      })
+    };
+    console.log(sortArr3(arr)); */
+  </script>
+</body>
+
+</html>

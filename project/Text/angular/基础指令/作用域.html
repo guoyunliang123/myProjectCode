@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-controller="myController">
+  {{ name }}
+  {{ age }}
+  <!-- 取不到子集的值 -->
+  <h1>子集的值：{{ address }}</h1>
+  <hr>
+
+  <div ng-controller="childController">
+    {{ name }}
+    {{ age }}
+    {{ address }}
+  </div>
+  <hr>
+  <!-- 同级作用域之间也不可以相互访问 -->
+  <div ng-controller="childController2">
+    {{ name }}
+    {{ age }}
+    {{ address }}
+  </div>
+
+
+  <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+  <script>
+    let app = angular.module("myApp", []);
+    // app.run 代表运行阶段
+    app.run(["$rootScope", function($rootScope){
+      $rootScope.age = 30;
+    }])
+
+    app.controller("myController", ["$scope", function($scope){
+      $scope.name="Text";
+
+    }])
+    // childController 继承了父元素的属性
+    app.controller("childController", ["$scope", function($scope){
+      $scope.address="BeiJing";
+
+    }])
+
+    app.controller("childController2", ["$scope", function($scope){
+      $scope.text="学习";
+
+    }])
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div2{
+            width: 100px;
+            height: 100px;
+            background: #00ff00;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+    <!-- 解决tap的点透问题  fastclick.js
+        FasrClick.attach(document.body);
+    -->
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        // tap 和 click的区别
+        // 一般在移动端用tap，因为click会有300毫秒的延迟
+        //  tap存在点透问题
+        $(document).on("pageinit", function(){
+            $("#div1").on("tap", function(){  //把tap事件改为click事件
+                console.log("div1 tap");
+            });
+            $("#div2").on("tap", function(){
+                console.log("div2 tap")
+                $(this).hide(); //hide是吧当前的display变为none
+            });
+        });
+
+    </script>
+    <script src="jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div id="div1"></div>
+    <div id="div2"></div>
+</body>
+</html>

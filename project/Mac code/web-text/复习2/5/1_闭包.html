@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!-- 闭包 -->
+  <!-- 
+    定义： 指外部函数里声明内部函数，内部函数引用外部函数里的局部变量，这样当外部函数调用完毕以后，局部变量不会被释放，可一直使用
+    具体应用：在一个ul里有多个li，单击li时显示自己的索引，实现方式是：在for循环给li绑定时间时，在for循环里添加函数立即调用，为这个函数立即调用传递i作为实参，然后再这个函数立即调用里给li注册单击事件，在单击事件里alert函数立即调用中的形参index
+  -->
+  <ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+  </ul>
+
+  <script>
+    var aLi = document.getElementsByTagName('li');
+    for(var i=0; i<aLi.length; i++){
+      (function(idx){
+        aLi[i].onclick = function(){
+          console.log(idx);
+        }
+      })(i);
+    }
+  </script>
+</body>
+</html>

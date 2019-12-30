@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // let num1 = 5; //二进制：101
+        // console.log(num1.toString(2)); // 十进制变为二级制
+
+        // let num2 = 101;
+        // console.log(parseInt(num2, 2));  // 二进制变为十进制
+
+        // let num3 = 0B0101;  // 二进制0b 或 0B
+        // console.log(num3);
+
+        // let num4 = 0o666;
+        // console.log(num4);  //八进制 0o 或 0O
+
+        // Number.isFinite(5)  判断是否为数字  返回布尔型
+        // console.log(Number.isFinite(5)); // 判断是不是个数  true
+        // console.log(Number.isFinite('5')); // false
+        // console.log(Number.isFinite(undefined)); // false
+        // console.log(Number.isFinite(null)); // false
+        // console.log(Number.isFinite(5 / 0)); // false
+        // console.log(Number.isFinite(NaN));  // false
+        
+
+        // console.log(window.isNaN(NaN));  //true
+        // console.log(Number.isNaN(NaN));   // true
+
+        // console.log(Number.isInteger(5));  //true
+        // console.log(Number.isInteger(5.5));  //false
+
+        // console.log(Number.parseInt(5.5));  //5
+        // console.log(Number.parseFloat(5.5)); //5.5
+
+        
+        //返回的是2^53
+        let max = Math.pow(2, 53);
+        console.log(max);
+        console.log(max - 1);
+        console.log(Number.MAX_SAFE_INTEGER);
+        console.log(Number.MIN_SAFE_INTEGER);
+        console.log(Number.isSafeInteger(5));
+        console.log(Number.isSafeInteger(max));
+
+        //Math.trunc()  取出一个数的小数部分，返回整数部分
+        //Math.sign()   判断一个数到底是正数(返回1)、负数(返回-1)、还是零(返回0) 
+        console.log(Math.trunc(6.5));
+        console.log(Math.sign(6));
+        console.log(Math.sign(0)); 
+        console.log(Math.sign(-6)); 
+         
+        
+        
+        
+        
+
+        
+
+
+
+
+
+    </script>
+</body>
+</html>

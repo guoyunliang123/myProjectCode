@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function a() {
+      var user = "_";
+      console.log(this.user);
+    };
+    a();
+    window.a();
+
+    const b = {
+      user: '二',
+      fn: function () {
+        console.log(this.user);
+      }
+    };
+    b.fn();
+
+    const c = {
+      d: {
+        user: '三',
+        fn: function () {
+          console.log(this.user);
+        }
+      }
+    }
+    c.d.fn();
+  </script>
+</body>
+
+</html>

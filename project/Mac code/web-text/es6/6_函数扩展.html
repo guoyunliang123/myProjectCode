@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="div1">div1</div>
+   
+    <script>
+        // function add(x, y='abc'){
+        //     // y = y || 0;
+        //     return `${x} + ${y}`;
+        // }
+        // console.log(add('hello',));
+
+        // function foo([a, b, c, d, e]){
+        //     console.log(a, b, c, d, e);
+        // }
+        // foo([1, 2, 3, 4, 5])
+
+        // function foo(name, age){
+        //     console.log(name, age);
+        // }
+        // let obj = {
+        //     name : 'zhangsan',
+        //     age : 18
+        // };
+        // foo(obj);
+
+        // function add(x=0, y=0){
+        //     return x + y;
+        // }
+        // add(5, 6);
+        // console.log(add.length); // length 返回的是函数没有指定默认值的参数的个数
+        // console.log(add.name);  // 返回的是方法的名字
+
+        // function foo(a, b, ...arg){
+        //     console.log(arg);
+        // }
+        // foo(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        //严格模式  ①全局变量必须显示声明 ②禁止this关键字指向全局对象  构造函数必须new
+        //③函数不能有重名的参数
+        // ④禁止使用with语句
+        // ⑤禁止使用argunemts.callee()
+        'use strict';  
+        // a = 5; 
+        // console.log(a); 
+
+        // ②禁止this关键字指向全局对象
+        // function foo(){
+        //     console.log(this);
+        // }
+        // foo();
+
+        //构造函数必须new
+        // function People (name, age){
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // let p1 = new People('lisi', 18);
+        // console.log(p1);
+
+        //③函数不能有重名的参数
+        // function foo(a, a, c){
+        //     console.log(a, a, c);
+        // }
+        // foo(4, 5, 6);
+
+        // ④禁止使用with语句
+        // let a = 5;
+        // let obj = {
+        //     a : 6
+        // };
+        // with(obj){
+        //     console.log(a);
+        // }
+
+        // ⑤禁止使用argunemts.callee()
+        // function foo(num){
+        //     'use strict';  
+        //     if(num == 1){
+        //         return 1;
+        //     }
+        //     return num * foo(num - 1);
+        //     // return num * arguments.acllee(num - 1);
+            
+        // }
+        // console.log(foo(5));
+
+        // 规定只要函数使用了默认值、解构模式、或者扩展运算符，那么函数内部就不能显示设定为严格模式，否则会报错。
+        // function add(x=0, y=0){  // 把x和y的初始值去掉
+        //     'use strict'
+        //     return x + y;
+        // }
+        // console.log(add(5, 6));
+
+        // function foo([a, b, c, d, e]){
+        //     'use strict'
+        //     console.log(a, b, c, d, e);
+        // }
+        // foo([1, 2, 3, 4, 5])
+
+        // function foo(...arg){
+        //     'use strict';
+        //     console.log(arg);
+        // }
+        // foo(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        //箭头函数  =>    左边是参数  右边是方法体 
+        // function add(x, y){
+        //     return x + y;
+        // }
+        // console.log(add(5, 6));
+
+
+        // let add2 = (x, y) => { return x + y };
+        // console.log(add2(5, 6));
+
+        // let x = x => x;
+        // console.log(x(5));
+
+        // let add = (x=0, y=0) => x + y ;
+        // console.log(add(5, 6));
+
+        // let foo = (...arg) =>console.log(arg);
+        // foo(1, 2, 3, 4, 5, 6, 7, 8);
+
+        // let obj = {
+        //     name : 'lisi',
+        //     age : 18
+        // }
+        // let foo  = ({name, age}) => console.log(name, age);
+        // foo(obj);
+
+        // 箭头函数里面不能使用arguments
+        // let obj = {
+        //     name : 'lisi',
+        //     age : 18
+        // }
+        // let foo  = ({name, age}) => {
+        //     // console.log(name, age);
+        //     console.log(arguments);    
+        // };
+        // foo(obj);
+
+
+        //也不能用于构造函数
+        // let People = (name, age) => {
+        //     this.name = name;
+        //     this.age = age;
+        // };
+        // let p1 = new People('lisi', 18);
+
+        
+        let oDiv1 = document.querySelector("#div1");
+        // oDiv1.addEventListener('click', function(){
+        //     console.log(this);
+        //     setTimeout(function(){
+        //         console.log(123);
+        //         console.log(this); //window
+        //     }, 1000);
+        // });
+
+        // 函数体内的this对象，this就是定义时所在的对象，而不是使用时所在的对象
+        // oDiv1.addEventListener('click', function(){
+        //     setTimeout(() => {
+        //         console.log(this); //div
+        //     }, 1000);
+        // });
+
+        // let a = 5; 
+        // var b = 6;
+        // console.log(window.a); // undefined
+        // console.log(window.b); // 6       
+        // let obj = {
+        //     a : 6,
+        //     foo : function(){
+        //         console.log(this);  //obj
+        //         console.log(this.a); // obj.a = 6  
+        //     },
+        //     foo2 : () => {
+        //         console.log(this);  //window
+        //         console.log(this.a); // window.a = undefined
+        //     }
+        // }
+        // obj.foo();
+        // obj.foo2();
+        
+        
+
+
+
+
+    </script>
+</body>
+</html>

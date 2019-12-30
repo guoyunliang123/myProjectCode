@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        类：   人类   具有相同属性和方法的对象的集合
+        对象： 张三
+     -->
+
+    <!-- 
+        改变this的指向：
+        call
+        apply
+        bind
+     -->
+    <script>
+       //类
+       function People(naem, age){
+           this.name = name;
+           this.age = age;
+       }  
+       People.prototype.code = function(){
+           alert("coding...");
+       };
+
+       //对象
+       var p1 = new People("zhangsan", 18);
+       p1.code();
+
+       
+       function aa(name, age){
+           console.log(this);//window
+           console.log(name);
+           console.log(age);
+       }
+       var obj = {
+           name : "zhangsan",
+           school : "heida" 
+       };
+    //    第一个参数：要改变的this指向
+    //    aa.call(obj, "lisi", 18); // this=> object
+    //    aa.apply(obj, ["lisi", 18]); // this=> object  参数放在数组里
+    //    aa.bind(obj, "lisi", 18); // this=> object 不会立即调用
+    //    aa.bind(obj)("lisi", 18);  //第二个括号才是调用
+    
+    
+
+
+    </script>
+
+</body>
+</html>

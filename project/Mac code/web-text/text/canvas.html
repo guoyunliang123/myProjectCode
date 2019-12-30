@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="300" height="300" style="margin-left: 143px;border:1px solid #333;">你的浏览器不支持canvas，狗日的IE。</canvas>
+  <script>
+    var canvas = document.getElementById('canvas');
+    var x = 50;
+    var y = 50;
+    var dx = 2;
+    var dy = 4;
+    var WIDTH;
+    var HEIGHT;
+    var ctx;
+    var paddlex;
+    var paddleh;
+    var paddlew;
+    var a;
+
+    var rectee = {
+      w: 60,
+      h: 10,
+      data: [{
+        x: 10,
+        y: 10
+      }, {
+        x: 80,
+        y: 10
+      }, {
+        x: 150,
+        y: 10
+      }, {
+        x: 220,
+        y: 10
+      }, {
+        x: 10,
+        y: 30
+      }, {
+        x: 80,
+        y: 30
+      }, {
+        x: 150,
+        y: 30
+      }, {
+        x: 220,
+        y: 30
+      }]
+    };
+
+    function init_paddle() {
+      paddlex = WIDTH / 2;
+      paddleh = 10;
+      paddlew = 75;
+    }
+
+    function init() {
+      ctx = canvas.getContext("2d");
+      WIDTH = 300;
+      HEIGHT = 300;
+      canvas.addEventListener("mousemove", mouseMove)
+      a = setInterval(draw, 10);
+    }
+
+    function mouseMove(e) {
+      var rect = e.currentTarget.getBoundingClientRect();
+      var gravityPoint = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+      paddlex = gravityPoint.x - 30;
+    }
+
+    function circle(x, y, r) {
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2, true);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function rect(x, y, w, h) {
+      ctx.beginPath();
+      ctx.rect(x, y, w, h);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function clear() {
+      ctx.clearRect(0, 0, WIDTH, HEIGHT);
+    }
+
+    function checkCollide() {
+      for (var i = 0; i < rectee.data.length; i++) {
+        if (x <= (rectee.data[i].x + 60) && x >= (rectee.data[i].x) && rectee.data[i].y <= y && y <= (rectee.data[i].y +
+            10)) {
+          rectee.data.splice(i, 1);
+          dy = -dy;
+        }
+      }
+
+    }
+
+    function draw() {
+      clear();
+      circle(x, y, 10);
+      rect(paddlex, 290, paddlew, paddleh);
+      for (var i = 0; i < rectee.data.length; i++) {
+        rect(rectee.data[i].x, rectee.data[i].y, rectee.w, rectee.h);
+      }
+      if (rectee.data.length == 0) {
+        clearInterval(a);
+        alert("success!");
+      }
+      checkCollide();
+      if ((x + dx) > WIDTH || (x + dx) < 0) {
+        dx = -dx;
+      }
+      if ((y + dy) < 0) {
+        dy = -dy;
+      } else if ((y + dy) >= 290) {
+        if ((x + dx) >= paddlex && (x + dx) <= (paddlex + paddlew)) {
+          dy = -dy;
+        } else {
+          clearInterval(a);
+          alert("error!");
+        }
+      }
+
+      x += dx;
+      y += dy;
+
+    }
+
+    init();
+    init_paddle();
+  </script>
+</body>
+
+</html>

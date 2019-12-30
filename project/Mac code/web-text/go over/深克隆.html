@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    var obj1 = {
+      name: 'zhangsan',
+      age: 18,
+      father: {
+        name: 'zhangXX',
+        age: 50
+      }
+    };
+
+    var obj2 = obj1;
+    obj1.name = 'lisi';
+    console.log(obj2.name); //输出张三
+    obj1.father = 'zhangYY';
+    console.log(obj2.father.name); //输出zhangXX
+    function clone(obj) {
+      var newObj = new Object();
+      for (var p in obj) {
+        if (typeof obj[p] == 'object') {
+          newObj[p] = clone(obj[p]);
+        } else {
+          newObj[p] = obj[p];
+        }
+      }
+      return newObj;
+    }
+  </script>
+</body>
+
+</html>

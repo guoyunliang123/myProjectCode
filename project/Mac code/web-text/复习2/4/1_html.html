@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button{
+            width: 100px;
+            height: 50px;
+            /* 浮动可以去掉两个按钮之间因回车产生的空格 */
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<!-- 
+行级元素inline：span  a  
+块级元素block：p  div  h1~h6
+替换元素(replace)：img  input  button
+ 
+display:inline/block/inline-block
+none  table  table-cell  弹性盒模型flex(新的)  box(旧的)  
+
+URL：
+http://www.w3school.com.cn/html/index.asp，遵守以下的语法规则：
+
+scheme://host.domain:port/path/filename解释：
+
+scheme - 定义因特网服务的类型。最常见的类型是 http 
+host - 定义域主机（http 的默认主机是 www） 
+domain - 定义因特网域名，比如 w3school.com.cn 
+:port - 定义主机上的端口号（http 的默认端口号是 80） 
+path - 定义服务器上的路径（如果省略，则文档必须位于网站的根目录中）。 
+filename - 定义文档/资源的名称 
+
+转义符：&times  乘号
+
+
+-->
+    <!-- p里放块级元素会出现问题 -->
+    <p>
+        <div>1111111</div>
+    </p>
+
+    <button>点击</button>
+    <button>注册</button>
+</body>
+</html>

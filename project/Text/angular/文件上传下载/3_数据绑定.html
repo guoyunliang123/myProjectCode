@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div ng-init="qty=1; cost=2">
+        <b>订单：</b>
+        <div>
+            数量：<input type="number" ng-model="qty" required>
+        </div>
+        <div>
+            单价：<input type="number" ng-model="cost" required>
+        </div>
+        <div>
+            <b>总价：$<input type="number" ng-model="qty*cost" required></b>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+</body>
+</html>

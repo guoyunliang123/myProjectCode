@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 测试数组的所有元素是否都通过了指定函数的测试
+    // 1、若全部通过测试，函数返回 true，中途退出，返回false
+    // 2、不对原数组产生影响
+
+    function isBelowThreshold(currentValue) {
+      return currentValue < 40;
+    }
+    var array1 = [1, 30, 39, 29, 10, 13];
+    console.log(array1.every(isBelowThreshold));
+
+    array1.push(70);
+    console.log(array1);
+    // console.log(array1.every(isBelowThreshold));
+
+    /* function isBigEnough(element, index, array) {
+      console.log(index);
+      return (element >= 10);
+    }
+    var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+    // 0
+    // 1
+    // passed is false
+    passed = [12, 54, 18, 130, 44].every(isBigEnough);
+    // 0 1 2 3 4
+    // passed is true */
+  </script>
+</body>
+
+</html>

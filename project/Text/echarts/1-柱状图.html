@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="echarts.min.js"></script>
+</head>
+<body>
+  <div id="chart" style="width:100%;height:100vh;"></div>
+
+
+  <script>
+    var myChart = echarts.init(document.getElementById('chart'));
+	  var options = {
+		  legend: {},
+		    tooltip: {},
+		    dataset: {
+          dimensions: ['product', '2016', '2017', '2018'],
+          source: [
+            {product: '总计', '2016': 78458, '2017': 78458, '2018': 78458},
+            {product: '基本工资', '2016': 37368, '2017': 40481, '2018': 51678},
+            {product: '津贴补贴', '2016': 25982, '2017': 47967, '2018': 17422},
+            {product: '奖金', '2016': 15108, '2017': 17422, '2018': 22043}
+          ]
+		    },
+		    xAxis: {type: 'category'},
+		    yAxis: {
+          min: 0,
+          max: 100000,
+          // 刻度差值
+          interval: 20000
+        },
+		    series: [
+          // 设置柱上面数字
+          {
+            // bar 为柱状
+            type: 'bar',
+            // 更改柱状图颜色
+            itemStyle:{
+              normal:{
+                color:'yellow'
+              }
+            },
+            label: {
+              normal: {
+                show: true,
+                // 数字位置
+                position: 'top',
+              }
+            },
+            // 数字数据
+          },
+          {
+            type: 'bar',
+            label: {
+              normal: {
+                show: true,
+                position: 'top'
+              }
+            },
+          },
+          {
+            type: 'bar',
+            label: {
+              normal: {
+                show: true,
+                position: 'top'
+              }
+            },
+          },
+		    ]
+	 	};
+	  myChart.setOption(options);
+    window.onresize = () => {
+      myChart.resize();
+    }
+  </script>
+</body>
+</html>

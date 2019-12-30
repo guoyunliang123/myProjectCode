@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<!-- 
+事件： 事件源   事件处理函数  事件对象   e || window.event
+
+事件冒泡：浏览器默认是事件冒泡的，可以用addEventListener的第三个参数控制它是事件冒泡还是事件捕获，false是事件冒泡，true是事件捕获
+obj.addEventListener(type, function(){   
+}, false/true);
+默认为false  事件冒泡：从事件源开始一层一层往外传播
+true  事件捕获：从外面开始一层层到事件源
+事件发生过程：先捕获，后冒泡！！！
+
+IE:attachEvent(on+type, function(){});
+在IE中，只支持事件冒泡，不支持事件捕获
+绑定顺序是相反的    this 指向window
+
+事件代理或者事件委托：是利用事件冒泡把子元素的事件统一委托给父元素去绑定
+1、子元素事件委托给父元素绑定   事件源： e.target    window.event.srcElement
+2、后生成的元素事件绑定问题
+
+改变this指向：call  bind   apply
+
+ -->
+    <div id="div1">div11111
+        <div class="aa">div2222</div>
+        <div class="aa">div3333</div>
+    </div>
+
+    <script>
+        // document.getElementById("div1");
+        // document.getElementsByTagName("div");
+        // document.getElementsByClassName("aa");
+        // document.getElementsByName("username");
+        
+        var oDiv1 = document.querySelector("#div1 .aa");
+        // console.log(oDiv1.innerHTML);//返回的是第一个叫aa的
+
+        // console.log(document.querySelectorAll("#div1 .aa"));//返回的是所有的叫aa的
+
+        // oDiv1.onclick = function(){
+        //     console.log(1);
+        // };
+        // oDiv1.onclick = function(){
+        //     console.log(2);
+        // }; //结果只输出2  后定义的给先定义的覆盖掉
+
+        oDiv1.addEventListener("click", function(){
+            console.log(1);
+        }, false);
+        oDiv1.addEventListener("click", function(){
+            console.log(2);
+        }, false); //结果输出1，2  不会被覆盖  按照绑定的顺序执行
+
+
+        var obj = {
+            name : "zhangsna",
+            age : 18
+        };
+        function fn(a, b){
+            console.log(this);
+            console.log(a);
+            console.log(b);
+        }
+        fn.call(obj, 2, 3);
+        fn.apply(obj,[2, 3]);
+        fn.bind(obj, 2, 3)();
+
+
+
+
+        
+        
+        
+    </script>
+</body>
+</html>

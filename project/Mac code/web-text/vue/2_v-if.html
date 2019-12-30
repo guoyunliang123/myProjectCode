@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        {{msg}}
+        <div v-if="isLogin">已登录</div>
+        <!-- true显示 -->
+        <div v-else=>请登录</div>
+        <!-- false显示 -->
+
+        <!-- dom结构直接就没了   else只能跟在if的后面-->
+        <div v-if="type == 'A'">A</div>
+        <div v-else-if="type == 'B'">B</div>
+        <div v-else>C</div>
+
+        <!-- 把display:none -->
+        <div v-show="isShow">show</div>
+    </div>
+
+    <script src="vue.js"></script>
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello World!',
+                isLogin: true,
+                type: 'A',
+                isShow: false
+            }
+        })
+    </script>
+</body>
+
+</html>

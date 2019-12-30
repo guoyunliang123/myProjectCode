@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+        }
+        /* em(父元素的font-size的倍数)、rem(相对于html) */
+        #div1{
+            font-size: 20px;
+        }
+        #div2{
+            font-size: 1em;
+            width: 5em;
+            height: 5em;
+            background: #00ff00;
+        }
+        #div3{
+            width: 1em;
+            height: 1em;
+            background: #999999;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">div1
+        <div id="div2">div2
+            <div id="div3">div3</div>
+        </div>
+    </div>
+</body>
+</html>

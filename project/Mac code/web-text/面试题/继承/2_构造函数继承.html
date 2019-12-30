@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 优点
+    // 1、避免了引用类型的属性被所有实例共享
+    // 2、可以再 Child 中向 Parent 传参
+
+    // 缺点
+    // 1、方法都在构造函数中定义，每次创建实例都会创建一遍方法
+
+    /* function Parent() {
+      this.names = ['kevin', 'daisy'];
+    }
+
+    function Child() {
+      Parent.call(this);
+    }
+
+    const child1 = new Child();
+
+    child1.names.push('yayu');
+
+    console.log(child1.names); // ["kevin", "daisy", "yayu"]
+
+    const child2 = new Child();
+
+    console.log(child2.names); */ // ["kevin", "daisy"]
+
+    // 例子
+
+    function Parent(name) {
+      this.name = name;
+    }
+
+    function Child(name) {
+      Parent.call(this, name);
+    }
+
+    const child1 = new Child('kevin');
+    console.log(child1.name); // kevin
+
+    const child2 = new Child('daisy');
+    console.log(child2.name); // daisy
+  </script>
+</body>
+
+</html>

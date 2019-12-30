@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">随机数</button>
+    <div id="result"></div>
+
+    <script> 
+        //heml5方法  不会改变url地址
+        var oBtn = document.querySelector("#btn");
+        var oResult = document.querySelector("#result");
+        var obj = {};
+        oBtn.addEventListener("click", function(){
+            var arr = [];
+            for(var i=0; i<5; i++){
+                arr.push(Math.floor(Math.random() * 10));
+            }
+            oResult.innerHTML = arr;
+
+            history.pushState(arr, "");
+
+        });
+
+        window.onpopstate = function(e){
+            console.log(e.state);
+            oResult.innerHTML = e.state;
+        };
+        
+    
+    </script>
+</body>
+</html>

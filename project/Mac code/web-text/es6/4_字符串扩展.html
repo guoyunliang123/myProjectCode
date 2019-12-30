@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //let str = 'abc'; // 相当于let str = new String("abc");
+
+        let arg = 'hello';
+        // let str = 'sakjahdn'
+        // +'andm,an' + arg + 'bv<h1>ssss</h1>sj'
+        // +'knksdlajklkaj';
+        // document.write(str);
+
+        //字符串模板  不需要字符串拼接
+        // let a = 5, b = 6;
+        // let str1 = `gajbaj
+        // jag${arg}jab<h1>ssss</h1>s
+        // jsb<h1>5+6=${a+b}</h1>csb
+        // jajs`;
+        // document.write(str1);
+
+        let str = 'hello word';
+        // console.log(str.indexOf('l')); //存在则返回第一次出现的字符的下标  不存在则返回-1
+        // console.log(str.includes('l')); //返回true或者false 
+        console.log(str.startsWith('h')); //判断以谁开头  返回的值为true或者false  支持汉字或者多字符开头
+        console.log(str.endsWith('d'));  //判断以谁结尾  返回的值为true或者false
+
+        // startsWith
+        function sw(str, target){
+            if(str.indexOf(target) == 0){
+                return true;
+            }
+            return false;
+        }
+        console.log(sw(str, 'hello'));
+
+        // endsWith
+        // lastIndexOf()方法可返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索
+        function ew(str, target){
+            if(str.lastIndexOf(target) == str.length - target.length){
+                return true;
+            }
+            return false;
+        }
+        console.log(ew(str, 'world'));
+
+        // padStart()在字符串str2前面插入字符串 第一个参数：插入的字符串长度，第二个参数：需要插入的字符串  若插入的字符串长度不够则反复循环
+        // padEnd()在字符串str2后面插入字符串 第一个参数：插入的字符串长度，第二个参数：需要插入的字符串  若插入的字符串长度不够则反复循环
+        // repeat():重复字符串 参数：重复的次数
+        let str2 = 'xy';
+        // console.log(str2.padStart(7, 'abc'));
+        // console.log(str2.padEnd(7, 'abc'));
+        console.log(str2.repeat(5));
+        
+
+
+
+
+
+
+    </script>
+</body>
+</html>

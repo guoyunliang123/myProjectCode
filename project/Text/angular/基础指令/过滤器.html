@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-controller="myController">
+  <ul>
+    <!-- orderBy 调整列表排序  name 属性是根据首字母顺序排序 
+        接收两个参数，第一个参数是必须，第二个参数是是否逆向排序 -->
+    <!-- 默认顺序 -->
+    <li ng-repeat="item in items">
+      {{ item.name }}---{{ item.price }}
+    </li>
+    <hr>
+    <li ng-repeat="item in items | orderBy: 'price'">
+      {{ item.name }}---{{ item.price }}
+    </li>
+    <hr>
+    <li ng-repeat="item in items | orderBy: 'price': true">
+      {{ item.name }}---{{ item.price }}
+    </li>
+    <hr>
+    <li ng-repeat="item in items | orderBy: 'orderKey': bol">
+      {{ item.name }}---{{ item.price }}
+    </li>
+  </ul>
+  
+
+
+  <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+  <script>
+    let app = angular.module("myApp", []);
+
+    app.controller("myController", ["$scope", function($scope){
+      $scope.orderKey = "name";
+      $scope.bol = true;
+      $scope.items = [
+      {
+        name: 'iPhone',
+        price: 8888
+      },
+      {
+        name: 'Samsung',
+        price: 6666
+      },
+      {
+        name: 'HUAWEI',
+        price: 9999
+      }]
+
+    }])
+  </script>
+</body>
+</html>

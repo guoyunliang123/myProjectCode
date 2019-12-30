@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    function checkAll(type, value, msg) { //checkAll函数,type是你要验证的类型,value要是验证该类型的值，msg是验证失败后弹出的提示语
+      switch (type) //判断该类型
+      {
+        case 'Phone': //如果类型是Phone的话，就执行下面的判断
+          if (!(/^1[34578]\d{9}$/.test(value))) {
+            alert(msg);
+            return false;
+          } else {
+            alert('ok');
+          }
+          break;
+        case 'Email':
+          if (!(/^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/.test(value))) {
+            alert(msg);
+            return false;
+          } else {
+            alert('ok1');
+          }
+          break;
+      }
+    }
+  </script>
+</body>
+
+</html>

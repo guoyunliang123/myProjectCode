@@ -1,0 +1,105 @@
+/* registration的开始 */
+#registration{
+    height: 650px;
+}
+h2{
+    margin-top: 50px;
+}
+#box{
+    width: 555px;
+    height: 400px;
+    margin-top: 35px;
+    float: left;
+}
+#box .steps a{
+    color: #000;
+}
+#box .steps a:hover {
+    color: #ef8743;
+    text-decoration: underline;
+}
+#box li{
+    color: #5d5959;
+}
+#box ul{
+    margin-top: 20px;
+}
+#box ul .text-info{
+    width: 150px;
+    height: 20px;
+    float: left;
+    margin-top: 10px;
+    color: #5d5959;
+}
+#box ul input{
+    width: 386px;
+    height: 36px;
+    outline: none;
+    text-indent: 10px;
+}
+#box #immediately{
+    display: block;
+    width: 444px;
+    height: 42px;
+    background: #ef8743;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 30px 60px;
+    font-size: 18px;
+    border: 0;
+}
+#box #immediately:hover {
+    background: #fff;
+    border: 1px solid #000;
+    color: #000;
+}
+#box .steps{
+    color: #999;
+    font-size: 15px;
+}
+#assure h3{
+    width: 528px;
+    height: 20px;
+    color: #ef8743;
+}
+#assure p{
+    width: 528px;
+    color: #999;
+    font-size: 14px;
+    margin-top: 20px;
+}
+#assure{
+    height: 298px;
+    float: right;
+}
+#assure #article{
+    height: 75px;
+}
+#assure #products{
+    height: 100px;
+}
+#assure h3{
+    margin-top: 20px;
+}
+/* registration的结束 */
+
+/* footer的开始 */
+#footer{
+    width: 1349px;
+    height: 82px;
+    background: #fa558f;
+    overflow: hidden;
+}
+#me a{
+    color: #fff;
+    display: block;
+    margin-top: 25px;
+    font-size: 25px;
+}
+#girl p{
+    color: #fff;
+    float: right;
+    margin-bottom: 40px;
+}
+/* footer的结束 */

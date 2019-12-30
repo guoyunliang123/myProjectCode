@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body ng-app="myApp">
+  
+  <div ng-controller="myController">
+    {{name}}
+    {{ textFun() }}
+  </div>
+
+
+
+
+
+  <script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>
+
+  <script>
+    // angular.module 创建一个模块
+    let app = angular.module("myApp", []);
+
+    // app.controller("myController", function($scope){
+    //   // 推断式注入
+    //   // 代码不能进行压缩混淆
+    // })
+
+    app.controller("myController", ["$scope", function($scope){
+      // 内联式注入 (推荐使用)
+      // 控制器创建完成
+      $scope.name="Text";
+      $scope.textFun = function(){
+        return "Hello";
+      }
+    }])
+  </script>
+</body>
+</html>

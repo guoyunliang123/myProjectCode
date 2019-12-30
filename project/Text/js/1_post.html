@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Post</title>
+</head>
+<body>
+  
+  <script>
+    function loadXMLDoc(){
+      const url = 'https://e-bank.behfc.com/ebank/interface/appLogin/appLogin.do';
+
+      let data = {
+        "loginName": 'a',
+        "password": '123321',
+        "systemID": "BEIHF-APP",
+        "operationType": 1,
+        "standby": ""
+      };
+
+      const xhr = new XMLHttpRequest();
+
+      xhr.open('post', url);
+
+      xhr.setRequestHeader("Content-type","application/json");
+
+      xhr.send(JSON.stringify(data));
+
+      xhr.onreadystatechange = function () {
+        // 这步为判断服务器是否正确响应
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          console.log(xhr.responseText);
+        } 
+      };
+    }
+
+    loadXMLDoc()
+  </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 模式匹配 */
+    /* .triangle(top,@width:5px,@color:#ccc){
+      border-width: @width;
+      border-color: transparent transparent @color transparent;
+      border-style: dashed dashed solid dashed;
+    };
+    .triangle(bottom,@width:5px,@color:#ccc){
+      border-width: @width;
+      border-color: @color transparent transparent transparent;
+      border-style: dashed dashed solid dashed;
+    };
+    .triangle(left,@width:5px,@color:#ccc){
+      border-width: @width;
+      border-color: transparent @color transparent transparent;
+      border-style: dashed solid dashed dashed;
+    };
+    .triangle(right,@width:5px,@color:#ccc){
+      border-width: @width;
+      border-color: transparent transparent transparent @color;
+      border-style: dashed dashed dashed solid;
+    }; */
+    .sanjiao{
+      width: 0;
+      height: 0;
+      overflow: hidden;
+      border-width: 10px;
+      border-color: transparent transparent red transparent;
+      border-style: dashed dashed solid dashed;
+    }
+  </style>
+</head>
+<body>
+  <div class="sanjiao"></div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js"></script>
+</body>
+</html>

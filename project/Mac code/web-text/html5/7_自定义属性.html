@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="div1" data-aa-bb="456"></div>   <!-- 对象自定义属性以data-开头 -->
+
+    <script src="jquery-1.11.2.js"></script>
+    <script>
+        var oDiv1 = document.getElementById("div1");
+        //jq方法
+        oDiv1.aa = "123"; // 相当于jq  prop()
+        console.log(oDiv1.aa);
+
+        oDiv1.setAttribute("bb", "234"); //相当于jq attr()
+        console.log(oDiv1.getAttribute("bb"));
+
+        console.log($("#div1").data("aa-bb"));
+
+        //html5方法
+        console.log(oDiv1.dataset);
+        console.log(oDiv1.dataset.aaBb);
+
+
+
+    </script>
+</body>
+</html>

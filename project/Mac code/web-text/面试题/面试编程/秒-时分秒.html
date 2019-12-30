@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 秒 -> 时分秒   hh:mm:ss 格式
+    /* function getTime(num) {
+      const hours = Math.floor(num / 3600); // Math.floor 向下取整
+      const minutes = Math.floor(num % 60 / 60);
+      const seconds = Math.floor(num % 60);
+      return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+    } */
+
+    function getTime(seconds) {
+      return [seconds / 3600, seconds % 60 / 60, seconds % 60].map(v => {
+        return `${Math.floor(v).toString().padStart(2, '0')}`
+      }).join(':')
+    }
+    console.log(getTime(3600));
+  </script>
+</body>
+
+</html>

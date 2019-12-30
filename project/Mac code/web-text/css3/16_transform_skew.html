@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 200px;
+            height: 200px;
+            border: 5px dashed;
+            margin: 100px auto;
+        }
+        #div2{
+            width: 200px;
+            height: 200px;
+            background: #ff0000;
+
+            transform: skew(45deg, 30deg); /*X轴和Y轴按照一定角度值进行扭曲变形 */
+            /* skewX()  skewY() */
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">div</div>
+    </div>
+</body>
+</html>

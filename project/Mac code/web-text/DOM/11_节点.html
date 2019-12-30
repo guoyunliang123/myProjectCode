@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="h1">hhhhh</h1>
+    <p>ppppp</p>
+    <ul id="ul1">
+        <li>001</li>
+        <li>002</li>
+        <li>003</li>
+    </ul>
+
+    <script>
+        var oUl = document.getElementById("ul1");
+        var oH1 = document.getElementById("h1");
+        console.log(oUl.nodeType);
+        console.log(first(oUl));
+        //console.log(next(oH1));
+        //console.log(oUl.firstChild);//获取到的是中间的空格,在IE下输出的是元素节点
+        // console.log(oUl.firstChild.nodeType);//节点的类型，
+        //console.log(oUl.firstElementChild);//返回的是元素节点，有兼容性问题
+        //console.log(oH1.nextSibling);//获取H1的兄弟节点，有兼容性问题
+        //console.log(oH1.nextElementSibling);// 有兼容性问题
+        //console.log(oUl.lastChild);//获取oUl的最后一个孩子
+        //console.log(oUl.lastElementChild);//获取最后一个元素孩子
+
+        //找到该元素的兄弟  （元素节点）
+        function next(elem) {
+            do {
+                elem = elem.nextSibling;
+            } while (elem && elem.nodeType !== 1);
+            return elem;
+        }
+
+        //找到该元素的第一个孩子  （元素节点）
+        function first(elem) {
+            elem = elem.firstChild;
+            return elem.nodeType == 1 ? elem : next(elem);
+        }
+        first(oUl);
+    </script>
+</body>
+
+</html>

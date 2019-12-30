@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+    <h1 align="center">用户登录</h1>
+    <form name="myform">
+      <table name="mytable" align="center">
+        <tr>
+          <td>用户名：</td>
+          <td><input type="text" name="UserName"></td>
+          <td><span id="UserName"></span></td>
+        </tr>
+        <tr>
+          <td>密码：</td>
+          <td><input type="password" name="password"></td>
+          <td><span id="password"></span></td>
+        </tr>
+        <tr>
+          <td>确认密码：</td>
+          <td><input type="password" name="password_again"></td>
+          <td><span id="password_again"></span></td>
+        </tr>
+        <tr>
+          <td>昵称：</td>
+          <td><input type="text" name="NikeName"></td>
+          <td><span id="NikeName"></span></td>
+        </tr>
+        <tr>
+          <td>邮箱：</td>
+          <td><input type="text" name="email"></td>
+          <td><span id="email"></span></td>
+        </tr>
+        <tr>
+          <td>
+          </td>
+          <td>
+            <input type="button" onclick="fun()" value="注册用户">
+          </td>
+        </tr>
+      </table>
+  
+    </form>
+  <script type="text/javascript">
+    function fun() {
+      var UserName = document.myform.UserName.value;
+      var span_UserName = document.getElementById("UserName");
+  
+      var password = document.myform.password.value;
+      var span_password = document.getElementById("password");
+  
+      var password_again = document.myform.password_again.value;
+      var span_password_again = document.getElementById("password_again");
+  
+      var NikeName = document.myform.NikeName.value;
+      var span_NikeName = document.getElementById("NikeName");
+  
+      var email = document.myform.email.value;
+      var span_email = document.getElementById("email");
+  
+      var tag = true;
+  
+      if (UserName == "") {
+        span_UserName.innerHTML = "用户名不得为空";
+        span_UserName.style.color = "red";
+        tag = false;
+      }
+      if (password == "") {
+        span_password.innerHTML = "密码不得为空";
+        span_password.style.color = "red";
+        tag = false;
+      }
+      if (password_again == "") {
+        span_password_again.innerHTML = "密码不得为空";
+        span_password_again.style.color = "red";
+        tag = false;
+      }
+  
+      if (password != "" && password_again != "" && password != password_again) {
+        span_password_again.innerHTML = "两次密码输入不一致";
+        span_password_again.style.color = "red";
+        tag = false;
+      }
+  
+      if (NikeName == "") {
+        span_NikeName.innerHTML = "昵称不得为空";
+        span_NikeName.style.color = "red";
+        tag = false;
+      }
+  
+      if (email == "") {
+        span_email.innerHTML = "邮箱不得为空";
+        span_email.style.color = "red";
+        tag = false;
+      } else {
+        var reg = /^[A-Za-z0-9]+([-_.][A-Za-z0-9]+)*@([A-Za-z0-9]+[-.])+[A-Za-z0-9]{2,5}$/;
+        var state = reg.test(email);
+        if (!state) {
+          span_email.innerHTML = "请输入正确的邮箱格式";
+          span_email.style.color = "red";
+          tag = false;
+        }
+      }
+  
+      if (tag) {
+        document.myform.submit();
+        window.alert("成功注册");
+      }
+    }
+  </script>
+</body>
+</html>

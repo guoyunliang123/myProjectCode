@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 方法一、将字符串转为数组，然后用 reverse() 方法 然后将倒序数组变为字符串 在判断相不相等
+    const str = "aba";
+    const arr = str.split(''); // 字符串转为数组
+    console.log(arr);
+    const arr1 = arr.reverse().join(''); // 数组倒序 然后变为字符串
+    // 判断倒序和原字符串是否相等
+    console.log(str === arr1);
+    console.log(arr1)
+
+
+    function fn(str) {
+      for (let i = 0, j = str.length - 1; i < j; i++, j--) {
+        if (str[i] !== str[j]) {
+          return false;
+        }
+      }
+      return true;
+    }
+    console.log(fn('abca'));
+    console.log(fn('aba'));
+  </script>
+</body>
+
+</html>

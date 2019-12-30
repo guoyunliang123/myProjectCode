@@ -1,0 +1,129 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    border: 0;
+}
+a{
+    text-decoration: none;
+}
+li{
+    list-style: none;
+}
+.wrapper{
+    width: 1140px;
+    height: 100%;
+    margin: 0 auto;
+}
+/* header的开始 */
+#header{
+    background: url(../img/banner33.jpg) no-repeat center center;
+    height: 250px;
+}
+#min-header{
+    color: #fff;
+    height: 90px;
+}
+#min-header .float{
+    float: left;
+    margin-left: 390px;
+    line-height: 90px;
+}
+#min-header span{
+    margin-left: 380px;
+    cursor: pointer;
+}
+#min-header img{
+    vertical-align: middle;
+}
+#cart{
+    width: 260px;
+    height: 35px;
+    background: #333333;
+    float: left;
+    margin-left: 300px;
+    margin-top: 35px;
+    opacity: 0.6;
+    filter: alpha(opacity=60)
+}
+#cart a{
+   margin-left: 70px;
+   line-height: 35px;
+   color: #fff;
+}
+#cart span{
+    margin-left: 1px;
+    line-height: 35px;
+    color: #fff;
+}
+.float a{
+    color: #fff;
+}
+#min-header #ss{
+    margin-left: 20px;
+}
+#min-header #ss:hover{
+    text-decoration: underline;
+}
+#menu{
+    height: 40px;
+    margin-top: 10px;
+}
+#menu .page{
+    float: left;
+    background: #fa558f;
+    width: 190px;
+    display: block;
+    /* height: 190px; */
+    height: 40px;
+}
+#menu .page .list{
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    line-height: 40px;
+}
+#menu .page:hover{
+    background: #3c3b3b;
+}
+#menu #nav{
+    background: #3c3b3b;
+}
+#makeup #white{
+    background: #ffffff;
+    height: 300px;
+    width: 1140px;
+    margin-left: -190px;
+    display: none;
+    position: relative;
+    z-index: 999;
+}
+#makeup:hover #white{
+    display: block;
+}
+#white .nursing{
+    float: left;
+    width: 190px;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+#white .nursing a{
+    color: #ccc;
+}
+#white .nursing li{
+    margin-top: 10px;
+}
+#white .nursing li a:hover{
+    text-decoration: underline;
+    color: orange;
+}
+#white .nursing .care{
+    border-bottom: 1px solid #ccc;
+}
+#min-header .care{
+    color: #000;
+}
+/* header的结束 */

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const str = 'moo';
+    console.log(str.match(/oo\b/));
+
+    function testinput(re, str) {
+      var midstring;
+      if (re.test(str)) {
+        midstring = " contains ";
+      } else {
+        midstring = " does not contain ";
+      }
+      console.log(str + midstring + re.source);
+    }
+    testinput('abc', 'def');
+  </script>
+</body>
+
+</html>

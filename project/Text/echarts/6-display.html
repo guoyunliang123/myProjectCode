@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .one{
+      width: 400px;
+      height: 400px;
+      background: red;
+      overflow: scroll;
+    }
+    .two{
+      width: 300px;
+      height: 300px;
+      background: green;
+    }
+    .shree{
+      width: 200px;
+      height: 200px;
+      background: yellow;
+    }
+    .hide{
+      display: none;
+    }
+    .show{
+      display: block;
+    }
+  
+  </style>
+</head>
+<body>
+  
+
+  <div class="one">
+    <div class="hide" id="two-hide">
+      <div class="two">2</div>
+    </div class="two hide">
+    <div class="shree">3</div>
+  </div>
+  <button onclick="btnClick()">display</button>
+
+
+  <script>
+    var flag = true;
+    function btnClick(){
+      var oTwo = document.getElementById('two-hide');
+      if(flag == true) {
+        oTwo.classList.remove('hide');
+        oTwo.classList.add('show');
+        flag = false;
+      } else {
+        oTwo.classList.remove('show');
+        oTwo.classList.add('hide');
+        flag = true;
+      }
+      console.log(flag);
+    }
+  
+  </script>
+</body>
+</html>
