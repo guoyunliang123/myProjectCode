@@ -15,11 +15,23 @@
 
   <script>
     let data = { a: 1 };
-    let app = new Vue({
+
+    const obj = {
+      foo: 'bar'
+    }
+
+    Object.freeze(obj);
+    let vm = new Vue({
       el: '#app',
-      data: data
+      data: obj
     })
-    data.a = "hi new vue"
+    // data.a = "hi new vue";
+
+    vm.$watch('a', function(newVal,  oldVal) {
+      console.log(newVal, oldVal);
+    })
+
+    vm.$data.a = "text....."
   </script>
 </body>
 </html>

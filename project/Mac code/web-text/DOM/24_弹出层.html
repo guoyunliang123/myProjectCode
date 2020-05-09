@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window对象</title>
+    <meta charset="utf-8">
+    <style>
+    </style>
+</head>
+<body id="name">
+<a href="http://www.baidu.com">百度一下</a>
+<button type="button" id="open">打开弹出层</button>
+  <div style="display: none;background: lightblue;border:1px solid green;" id="toast">
+      <p>这里是弹出层内容</p>
+      <button type="button" id="close">关闭弹出层</button>
+  </div>
+  <script type="text/javascript">
+      var toast = document.getElementById("toast");
+      var bg = document.getElementById("name");
+      document.getElementById("open").onclick = function(e){ 
+          toast.style.display = "block";
+          toast.style.position = "fixed";
+          bg.style.background = "#ccc";
+      }
+      document.getElementById("close").onclick = function(e){         
+          toast.style.display = "none";
+          bg.style.background = "#fff";
+      }
+  </script>
+</body>
+</html>
